@@ -1,1 +1,1 @@
-cvpysdk>=11.36
+cvpysdk>=11.38

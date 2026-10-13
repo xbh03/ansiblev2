@@ -102,6 +102,14 @@ Commvault software assists organizations with data backup and recovery, cloud an
 
   * [commvault.ansible.plans.delete - deletes a plan](#commvault.ansible.plans.delete)
 
+  * [commvault.ansible.tags.add - creates an entity tag](#entity-tags)
+
+  * [commvault.ansible.tags.update - renames an entity tag globally](#entity-tags)
+
+  * [commvault.ansible.tags.delete - deletes an entity tag globally](#entity-tags)
+
+  * [commvault.ansible.tags.manage_clients - associates or removes tags on clients and pseudoclients](#entity-tags)
+
   * [commvault.ansible.workflow.execute - executes the workflow with the workflow name and inputs](#commvault.ansible.workflow.execute)
 
   * [commvault.ansible.workflow.deploy - deploys a workflow on the commcell.](#commvault.ansible.workflow.deploy)
@@ -2757,19 +2765,123 @@ name |  Success  |   str  |   The name of the disk storage created  |   storage2
 
 
 
+## Entity tags
 
+These modules manage **Command Center entity tags**, not Activate/eDiscovery
+document tags or cloud-provider resource tags. They use the same credentials
+and saved login session as the other collection modules. CVPySDK 11.38 or later
+is required (`commcell.tags` was introduced in SP38).
 
+All four modules are idempotent and support `--check`, reporting `changed: true`
+when a change would be made without issuing a mutating request. Names are
+compared case-insensitively, following CVPySDK.
 
+```yaml
+- name: Create an entity tag
+  commvault.ansible.tags.add:
+    name: Production
 
+- name: Rename the tag globally, preserving its ID and associations
+  commvault.ansible.tags.update:
+    name: Production
+    new_name: Critical
 
+- name: Associate existing tags with a filesystem client
+  commvault.ansible.tags.manage_clients:
+    client: fileserver01
+    tags: [Critical]
+    tag_values:
+      Environment: Production
+    state: present
 
+- name: Identify the same filesystem client by ID instead of name (123 is an example ID)
+  commvault.ansible.tags.manage_clients:
+    client_id: 123
+    tags: [Critical]
+    tag_values:
+      Environment: Production
 
+- name: Associate a tag with a VM using its SDK-resolvable client name
+  commvault.ansible.tags.manage_clients:
+    client: vm-client01
+    tags: [Critical]
 
+- name: Set or update a value on a database client
+  commvault.ansible.tags.manage_clients:
+    client: database-server01
+    tag_values:
+      Environment: Development
 
+- name: Remove only the association from the filesystem client
+  commvault.ansible.tags.manage_clients:
+    client: fileserver01
+    tags: [Critical]
+    state: absent
 
+- name: Delete the tag globally, including its associations
+  commvault.ansible.tags.delete:
+    name: Critical
+```
 
+### Identifying the target client
 
+`tags.manage_clients` requires **exactly one** of these alternatives:
 
+- `client`: the target client's name. CVPySDK resolves it to the client ID.
+- `client_id`: the target client's positive ID, used directly without SDK name
+  resolution. Useful when the name is not resolvable or to identify the client
+  explicitly.
+
+**Both perform identical tagging on the same client entity.** The choice does
+not depend on the workload: either can identify a filesystem, VM or database
+client. A VM does not require `client_id` if its client name is SDK-resolvable,
+and `client_id` is not restricted to VMs. For a VM, identify its own client
+entity, not the virtualization client. An instance ID, subclient ID or VM
+inventory identifier is not a client ID.
+
+### Managing associations and values
+
+Tags must already exist for `state: present`.
+Only the requested associations are changed; unrelated tags and values are
+preserved. `tags: [Critical]` ensures presence without modifying an existing
+value, and new name-only associations use an empty value.
+`tag_values: {Environment: Production}` ensures an explicit string value:
+missing associations use POST, and changed values use PUT with the existing
+tag ID. An explicit empty string clears a value. Names and values may contain
+up to 512 and 1024 characters respectively. Values are case-sensitive; names
+are compared case-insensitively. Duplicate case-insensitive names in
+`tag_values` are rejected. No multi-value append behavior is implemented.
+`tag_values` is only accepted with `state: present`; use `tags` with `state: absent`.
+`state: absent`
+removes all values of each requested tag from that client, without deleting the
+global tag. This module does not tag subclients, instances, or VM inventory
+objects that do not have their own client entity. All requests target
+`CLIENT_ENTITY` (3), with no agent/workload filter: filesystem servers, VM
+clients, and database clients/pseudoclients with their own client ID can be
+targeted. A database represented as an instance (`INSTANCE_ENTITY`, 5) or
+subclient (`SUBCLIENT_ENTITY`, 7) is not supported by this module.
+Using SDK name resolution does not establish support for every pseudoclient;
+availability and permissions must be verified on the target CommCell.
+
+`tags.update` renames the global tag, rather than updating a per-entity value.
+If the old name is absent and the new name exists, it reports no change,
+allowing repeated runs. If both names exist, it fails rather than merging tags.
+Case-only renames are treated as no change.
+
+Creation and global deletion use `commcell.tags` in CVPySDK. Its current public
+`Tag` class does not expose rename or client-association methods, so these
+operations use the SDK's authenticated transport: the `EDiscovery/Tags` rename
+payload used by the SDK's `Tag.modify()` implementation, and the documented
+[entity tag REST APIs](https://documentation.commvault.com/11.40/software/entity_tag_rest_apis.html)
+(`GET Tags/CLIENT_ENTITY/{id}`, `POST Tags`, `PUT Tags`, `DELETE Tags`) for associations.
+Your CommCell must support these endpoints and the login user must have tag
+management permissions. Renames and association changes are read back to
+verify the resulting state.
+
+Offline unit tests for these modules can be run from the collection root with
+`python -m unittest discover -s tests/unit -p 'test_tags.py'`. They mock the SDK
+and transport; a live CommCell is still needed to validate server-version
+compatibility, permissions, and VM client resolution in your environment.
 
 
 
