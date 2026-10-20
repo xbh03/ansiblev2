@@ -82,6 +82,10 @@ Commvault software assists organizations with data backup and recovery, cloud an
 
   * [commvault.ansible.file_servers.manage_plan - to change the plan associated to the client, backupset or subclient.](#commvault.ansible.file_servers.manage_plan)
 
+  * [commvault.ansible.clients.manage_client - manages an existing client or pseudoclient description.](#client-properties)
+
+  * [commvault.ansible.clients.client_info - lists clients or retrieves client properties and IDs.](#client-properties)
+
   * [commvault.ansible.file_servers.restore - to perform restore of a file server subclient.](#commvault.ansible.file_servers.restore)
 
   * [commvault.ansible.database.backup - to perform backup of a database subclient.](#commvault.ansible.database.backup)
@@ -2764,6 +2768,57 @@ name |  Success  |   str  |   The name of the disk storage created  |   storage2
 ```
 
 
+
+## Client properties
+
+`commvault.ansible.clients.manage_client` manages the description of an **existing**
+client entity, including filesystem pseudoclients. It does not create/delete clients or change
+agent/subclient settings. Specify exactly one of `client` (SDK-resolvable name) or
+`client_id` (positive client entity ID), and the desired `description`.
+An empty string clears the description. Other client properties are preserved.
+Repeated runs are idempotent; check mode reports pending changes without writing,
+and diff mode shows the old and requested descriptions. Updates are read back and
+verified before reporting success.
+
+`commvault.ansible.clients.client_info` is read-only:
+
+- With `client` or `client_id`, returns `client`, integer `client_id`, `description`
+  and `properties` (the SDK property dictionary, without the REST response envelope).
+- Without either identifier, returns `clients`, the SDK inventory keyed by name,
+  with `id` (string), `hostname` and `displayName`. The inventory is **not filtered
+  to filesystem clients**; visibility and name/ID resolution follow CVPySDK permissions
+  and behavior. An unresolved client fails rather than being created.
+- Both modes return `changed: false`, including in check mode.
+
+CVPySDK >= 11.38 already implements the required API operations:
+
+| API operation | SDK interface |
+| --- | --- |
+| Modify Client Properties | `Client.description` setter (partial property update) |
+| Get Client Properties | `Client.properties` |
+| Get Client | `Clients.all_clients` (refreshed before listing) |
+| Resolve client name to ID | `Clients.get(name).client_id` |
+
+```yaml
+- name: Describe an existing filesystem pseudoclient
+  commvault.ansible.clients.manage_client:
+    client: filesystem-pseudoclient01
+    description: Production filesystem
+
+- name: Resolve its ID and retrieve its current properties
+  commvault.ansible.clients.client_info:
+    client: filesystem-pseudoclient01
+  register: pseudoclient
+
+- name: Clear the description by ID
+  commvault.ansible.clients.manage_client:
+    client_id: "{{ pseudoclient.client_id }}"
+    description: ''
+
+- name: List clients visible to the SDK
+  commvault.ansible.clients.client_info:
+  register: client_inventory
+```
 
 ## Entity tags
 
