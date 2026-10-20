@@ -1,29 +1,31 @@
 {
  "collection_info": {
-  "namespace": "commvault",
-  "name": "ansible",
-  "version": "1.0.2",
+  "namespace": "xbh03",
+  "name": "commvault",
+  "version": "1.0.3",
   "authors": [
-   "Commvault Systems Inc."
+   "Commvault Systems Inc.",
+   "@xbh03 Francesco Zoino"
   ],
   "readme": "README.md",
-  "tags": [],
-  "description": "Commvault's Ansible collection to help perform common administrative tasks.",
-  "license": [
-   "Apache-2.0"
+  "tags": [
+   "commvault",
+   "ansible"
   ],
-  "license_file": null,
+  "description": "Commvault's Ansible collection to help perform common administrative tasks.",
+  "license": [],
+  "license_file": "LICENSE",
   "dependencies": {},
-  "repository": "https://github.com/Commvault/ansiblev2",
-  "documentation": "https://github.com/Commvault/ansiblev2/tree/main?tab=readme-ov-file#docs",
-  "homepage": "https://github.com/Commvault/ansiblev2",
-  "issues": "https://github.com/Commvault/ansiblev2/issues"
+  "repository": "https://github.com/xbh03/ansiblev2",
+  "documentation": "https://github.com/xbh03/ansiblev2/tree/main?tab=readme-ov-file#docs",
+  "homepage": "https://github.com/xbh03/ansiblev2",
+  "issues": "https://github.com/xbh03/ansiblev2/issues"
  },
  "file_manifest_file": {
   "name": "FILES.json",
   "ftype": "file",
   "chksum_type": "sha256",
-  "chksum_sha256": "6f6a0c1c2dfe107b12f8c08513fece86f2376bcff0031f10bd7164df4c5ead08",
+  "chksum_sha256": "4a4f2ba8d3129f4f02717db972f368766a04d94fa0a381af260f4ee2887971b2",
   "format": 1
  },
  "format": 1

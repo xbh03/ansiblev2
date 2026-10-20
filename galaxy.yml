@@ -79,25 +79,25 @@ dependencies: {}
 
 # The URL of the originating SCM repository
 
-repository: https://github.com/Commvault/ansiblev2
+repository: https://github.com/xbh03/ansiblev2
 
 
 
 # The URL to any online docs
 
-documentation: https://github.com/Commvault/ansiblev2/tree/main?tab=readme-ov-file#docs
+documentation: https://github.com/xbh03/ansiblev2/tree/main?tab=readme-ov-file#docs
 
 
 
 # The URL to the homepage of the collection/project
 
-homepage: https://github.com/Commvault/ansiblev2
+homepage: https://github.com/xbh03/ansiblev2
 
 
 
 # The URL to the collection issue tracker
 
-issues: https://github.com/Commvault/ansiblev2/issues
+issues: https://github.com/xbh03/ansiblev2/issues
 
 
 
