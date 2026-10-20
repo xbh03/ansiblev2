@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.deployment.download_software
+module: xbh03.commvault.deployment.download_software
 short_description: To perform Download Software on Commserve
 description: 
     - This module Downloads Media/Latest Payload from the Internet
-    - commvault.ansible.deployment.download_software module can be used in playbooks to perform Download Software on CS
+    - xbh03.commvault.deployment.download_software module can be used in playbooks to perform Download Software on CS
 
 options:
     webserver_hostname:
@@ -98,7 +98,7 @@ EXAMPLES = '''
 # Run a Download Job on the Commserver.
 
 - name: "DOWNLOAD_SOFTWARE"
-  commvault.ansible.deployment.download_software:
+  xbh03.commvault.deployment.download_software:
     download_option: "LATEST_SERVICEPACK"
     os_list:
       - WINDOWS_64
@@ -107,7 +107,7 @@ EXAMPLES = '''
     wait_for_job_completion: False
 
 - name: "DOWNLOAD_SOFTWARE"
-  commvault.ansible.deployment.download_software:
+  xbh03.commvault.deployment.download_software:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -118,7 +118,7 @@ EXAMPLES = '''
     sync_cache: False
 
 - name: "DOWNLOAD_SOFTWARE"
-  commvault.ansible.deployment.download_software:
+  xbh03.commvault.deployment.download_software:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -142,7 +142,7 @@ job_id:
 
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 try:
     from cvpysdk.deployment.deploymentconstants import DownloadPackages, DownloadOptions
 except ModuleNotFoundError:

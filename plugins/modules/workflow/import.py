@@ -17,13 +17,13 @@
 # --------------------------------------------------------------------------
 
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 DOCUMENTATION = '''
-module: commvault.ansible.workflow.import
+module: xbh03.commvault.workflow.import
 short_description: Imports a workflow to the Commcell.
 description: 
     - Imports a workflow to the Commcell.
-    - commvault.ansible.workflow.import module can be used in playbooks to import a workflow on the Commcell.
+    - xbh03.commvault.workflow.import module can be used in playbooks to import a workflow on the Commcell.
 
 options:
     webserver_hostname:
@@ -63,15 +63,15 @@ EXAMPLES = '''
 # Imports a workflow to the Commcell.
 
 - name: "IMPORT_WORKFLOW"
-  commvault.ansible.workflow.import:
+  xbh03.commvault.workflow.import:
     workflow_xml_path:  "C:\TempDir"
 
 - name: "IMPORT_WORKFLOW"
-  commvault.ansible.workflow.import:
+  xbh03.commvault.workflow.import:
     workflow_xml_path:  "C:\TempDir"
 
 - name: "IMPORT_WORKFLOW"
-  commvault.ansible.workflow.import:
+  xbh03.commvault.workflow.import:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"

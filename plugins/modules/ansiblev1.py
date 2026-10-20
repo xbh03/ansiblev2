@@ -18,7 +18,7 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.ansiblev1
+module: xbh03.commvault.ansiblev1
 short_description: Runs Python SDK functions using the generated entities similar to ansible v1
 description: 
     - Runs Python SDK functions using the generated entities similar to ansible v1
@@ -72,7 +72,7 @@ options:
 
 EXAMPLES = '''
 - name: "GET_CLIENT_ID"
-  commvault.ansible.ansiblev1:
+  xbh03.commvault.ansiblev1:
     operation: "client_id"
     entity_type: client
     entity_filter: {
@@ -81,7 +81,7 @@ EXAMPLES = '''
   register: output
 
 - name: "GET_JOB_DETAILS"
-  commvault.ansible.ansibleV1:
+  xbh03.commvault.ansibleV1:
     operation: "_get_job_details"
     entity_type: job
     entity: {
@@ -90,7 +90,7 @@ EXAMPLES = '''
   register: output
 
 - name: "CHECK_IF_CLIENT_EXISTS"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -114,7 +114,7 @@ response:
 
 '''
 import traceback
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 try:
     from cvpysdk.job import Job
 except ModuleNotFoundError:

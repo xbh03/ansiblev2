@@ -1,4 +1,4 @@
-# Ansible FS Deployment Role - commvault.ansible.fs_deployment
+# Ansible FS Deployment Role - xbh03.commvault.fs_deployment
 
 Documentation for the Role "File System Deployment".
 
@@ -39,7 +39,7 @@ subclient  |   no  |  | |  The name of the subclient. |
   tasks:
     - name: FS Role
       import_role:
-        name: commvault.ansible.fs_deployment
+        name: xbh03.commvault.fs_deployment
       vars:
         os_type: "windows"
         webserver_hostname: "demo-CS-Name"

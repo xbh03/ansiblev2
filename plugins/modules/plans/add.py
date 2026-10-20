@@ -19,7 +19,7 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.plans.add
+module: xbh03.commvault.plans.add
 short_description: Creates a plan
 description: 
  - This module creates a Plan in the CommCell
@@ -68,18 +68,18 @@ author:
 
 EXAMPLES = '''
 - name: Creating a plan
-  commvault.ansible.plans.add:
+  xbh03.commvault.plans.add:
     name: "Plan 1"
     storage_pool_name: "storage2"
 
 - name: Creating a plan with 7 days RPO
-  commvault.ansible.plans.add:
+  xbh03.commvault.plans.add:
     name: "Plan 1"
     storage_pool_name: "storage2"
     rpo_minutes: 10080
 
 - name: Creating a "Server" plan with 2 days RPO
-  commvault.ansible.plans.add:
+  xbh03.commvault.plans.add:
     name: "Plan 1"
     type: "Server"
     storage_pool_name: "storage2"
@@ -87,7 +87,7 @@ EXAMPLES = '''
     rpo_minutes: 2880
 
 - name: Creating a "Server" plan with 2 days RPO
-  commvault.ansible.plans.add:
+  xbh03.commvault.plans.add:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -110,7 +110,7 @@ id:
     sample: '2'
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

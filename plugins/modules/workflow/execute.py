@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.workflow.execute
+module: xbh03.commvault.workflow.execute
 short_description: Executes the workflow with the workflow name and inputs
 description: 
     - This module executes the given Workflow along with it's inputs
-    - commvault.ansible.workflow.execute module can be used in playbooks to execute the Workflows on client from Commcell
+    - xbh03.commvault.workflow.execute module can be used in playbooks to execute the Workflows on client from Commcell
 
 options:
     webserver_hostname:
@@ -69,13 +69,13 @@ EXAMPLES = '''
 # Executes the workflow on given Clients/ClientGroups with the workflow name as inputs
 
 - name: "EXECUTE_WORKFLOW"
-  commvault.ansible.workflow.execute:
+  xbh03.commvault.workflow.execute:
     workflow_name: "Demo_CheckReadiness"
     workflow_inputs: 
         ClientGroupName: "client_group1"
 
 - name: "EXECUTE_WORKFLOW"
-  commvault.ansible.workflow.execute:
+  xbh03.commvault.workflow.execute:
     workflow_name: "client check readiness"
     workflow_inputs: 
         input1_name: "input1_value"
@@ -84,7 +84,7 @@ EXAMPLES = '''
     wait_for_job_completion: False
 
 - name: "EXECUTE_WORKFLOW"
-  commvault.ansible.workflow.execute:
+  xbh03.commvault.workflow.execute:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -105,7 +105,7 @@ job_id:
 
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 try:
     from cvpysdk.job import Job
 except ModuleNotFoundError:

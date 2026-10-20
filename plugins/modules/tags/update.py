@@ -4,7 +4,7 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.tags.update
+module: xbh03.commvault.tags.update
 short_description: Renames an entity tag globally
 description:
   - Renames a Command Center entity tag using its existing ID and tag container.
@@ -37,7 +37,7 @@ author:
 
 EXAMPLES = r'''
 - name: Rename a tag without recreating it
-  commvault.ansible.tags.update:
+  xbh03.commvault.tags.update:
     name: Production
     new_name: Critical
 '''
@@ -53,8 +53,8 @@ id:
   type: str
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
-from ansible_collections.commvault.ansible.plugins.module_utils.tags import request, validate_names
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.tags import request, validate_names
 
 
 def main():

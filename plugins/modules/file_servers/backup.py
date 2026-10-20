@@ -18,10 +18,10 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.file_servers.backup
+module: xbh03.commvault.file_servers.backup
 short_description: To perform backup of a file server subclient.
 description:
-    - commvault.ansible.file_servers.backup can be used to perform file server backup operation.
+    - xbh03.commvault.file_servers.backup can be used to perform file server backup operation.
 options:
  webserver_hostname:
   description:
@@ -72,24 +72,24 @@ author:
 
 EXAMPLES = '''
 - name: Run a File System Backup for default subclient of default backupset, session file would be used.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     client: "client_name"
 
 - name: Run a File System Backup for subclient 'user_subclient' of backupset 'user_backupset', session file would be used.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     client: "client_name"
     backupset: "user_backupset"
     subclient: "user_subclient"
         
 - name: Run a File System Backup for default subclient of default backupset.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
     client: "client_name"
 
 - name: Run a File System Backup for subclient 'user_subclient' of backupset 'user_backupset'.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     webserver_hostname: "web_server_hostname"
     commcell_username: "user"  
     commcell_password: "password"
@@ -98,7 +98,7 @@ EXAMPLES = '''
     subclient: "user_subclient"
 
 - name: Run a File System Backup for subclient 'user_subclient' of backupset 'user_backupset' with agent_type of 'Linux File System'.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     webserver_hostname: "web_server_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -117,7 +117,7 @@ job_id:
     sample: '2016'
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

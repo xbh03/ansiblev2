@@ -1,4 +1,4 @@
-# Ansible Database Role - commvault.ansible.database
+# Ansible Database Role - xbh03.commvault.database
 =========
 
 Documentation  for the Role "Database".
@@ -47,7 +47,7 @@ var_commvault_timeout  |   yes  |  | |  Time for timeout |
   tasks:
     - name: Database Role
       import_roles:
-        name: commvault.ansible.database
+        name: xbh03.commvault.database
       vars:
         webserver_hostname: "demo_Name"
         commcell_username: "commcell_user"
@@ -69,7 +69,7 @@ Run playbook: ``` ansible-playbook backup_database.yml -t backup   ```
   tasks:
     - name: Database Role
       import_roles:
-        name: commvault.ansible.database
+        name: xbh03.commvault.database
       vars:
         webserver_hostname: "demo_Name"
         commcell_username: "commcell_user"

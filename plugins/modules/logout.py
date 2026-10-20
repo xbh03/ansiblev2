@@ -18,10 +18,10 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.logout
+module: xbh03.commvault.logout
 short_description: Logs out of the Commcell.
 description:
-    - commvault.ansible.logout can be used to logout of the Commcell stored in the session file.
+    - xbh03.commvault.logout can be used to logout of the Commcell stored in the session file.
 options:
 author: 
 - Commvault Systems Inc     
@@ -29,13 +29,13 @@ author:
 
 EXAMPLES = r'''
 - name: Log out of the Commcell
-  commvault.ansible.logout:
+  xbh03.commvault.logout:
 '''
 
 RETURN = r'''#'''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
-from ansible_collections.commvault.ansible.plugins.module_utils.login.pre_login import PreLogin
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.login.pre_login import PreLogin
 
 def main():
     """Main method for this module."""

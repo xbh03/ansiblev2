@@ -4,12 +4,12 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.tags.delete
+module: xbh03.commvault.tags.delete
 short_description: Deletes an entity tag globally
 description:
   - Deletes a Command Center entity tag and its associations.
   - Does nothing when the tag does not exist.
-  - To remove only a client association, use M(commvault.ansible.tags.manage_clients).
+  - To remove only a client association, use M(xbh03.commvault.tags.manage_clients).
   - Supports check mode.
 options:
   webserver_hostname:
@@ -31,7 +31,7 @@ author:
 
 EXAMPLES = r'''
 - name: Delete a tag globally
-  commvault.ansible.tags.delete:
+  xbh03.commvault.tags.delete:
     name: Production
 '''
 
@@ -42,8 +42,8 @@ name:
   type: str
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
-from ansible_collections.commvault.ansible.plugins.module_utils.tags import validate_names
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.tags import validate_names
 
 
 def main():

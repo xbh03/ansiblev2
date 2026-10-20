@@ -19,7 +19,7 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.storage.disk.detail
+module: xbh03.commvault.storage.disk.detail
 short_description: Gets details of a disk storage
 description: 
  - This module gets details of a given disk storage
@@ -50,11 +50,11 @@ author:
 
 EXAMPLES = '''
 - name: "Getting details of disk storage"
-  commvault.ansible.storage.disk.detail:
+  xbh03.commvault.storage.disk.detail:
     name: "storage2"
 
 - name: "Getting details of disk storage"
-  commvault.ansible.storage.disk.detail:
+  xbh03.commvault.storage.disk.detail:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -68,7 +68,7 @@ detail:
     type: dict
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

@@ -18,10 +18,10 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.file_servers.manage_content
+module: xbh03.commvault.file_servers.manage_content
 short_description: To update the properties of a file server at subclient level.
 description:
- - commvault.ansible.file_servers.manage_content can be used to update the content, filters and exceptions of a File System subclient. 
+ - xbh03.commvault.file_servers.manage_content can be used to update the content, filters and exceptions of a File System subclient. 
  - keys for 'update' are 'content', 'filter_content', 'exception_content' & will ALWAYS OVERWRITE existing values.
 options:
  webserver_hostname:
@@ -67,7 +67,7 @@ author:
 
 EXAMPLES = r'''
 - name: Update a File System subclient's content and filter, session file would be used.
-  commvault.ansible.file_servers.manage_content:
+  xbh03.commvault.file_servers.manage_content:
     client: "client_name"
     backupset: "user_backupset"
     subclient: "user_subclient"
@@ -80,7 +80,7 @@ EXAMPLES = r'''
             - C:\ANSIBLE_PATH1\FILTER2      
 
 - name: Update a File System subclient's content and filter.
-  commvault.ansible.file_servers.manage_content:
+  xbh03.commvault.file_servers.manage_content:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -97,7 +97,7 @@ EXAMPLES = r'''
 '''
 RETURN = r'''#'''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 supported_properties = ['content', 'filter_content', 'exception_content']
 

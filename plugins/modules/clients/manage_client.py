@@ -4,7 +4,7 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.clients.manage_client
+module: xbh03.commvault.clients.manage_client
 short_description: Manage the description of an existing client or pseudoclient
 description:
   - Adds, updates or clears the description of an existing client entity using CVPySDK.
@@ -46,12 +46,12 @@ author:
 
 EXAMPLES = r'''
 - name: Update the description of an existing filesystem pseudoclient
-  commvault.ansible.clients.manage_client:
+  xbh03.commvault.clients.manage_client:
     client: filesystem-pseudoclient01
     description: Production filesystem
 
 - name: Clear the description using the client ID
-  commvault.ansible.clients.manage_client:
+  xbh03.commvault.clients.manage_client:
     client_id: 123
     description: ''
 '''
@@ -73,8 +73,8 @@ description:
 
 from cvpysdk.exception import SDKException
 
-from ansible_collections.commvault.ansible.plugins.module_utils.clients import get_client
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.clients import get_client
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

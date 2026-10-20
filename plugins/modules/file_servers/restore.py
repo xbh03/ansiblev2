@@ -18,10 +18,10 @@
 
 DOCUMENTATION = '''
 ---
-module: commvault.ansible.file_servers.restore
+module: xbh03.commvault.file_servers.restore
 short_description: To perform restore of a file server subclient.
 description:
-    - commvault.ansible.file_servers.restore can be used to perform a file server restore operation.
+    - xbh03.commvault.file_servers.restore can be used to perform a file server restore operation.
 options:
  webserver_hostname:
   description:
@@ -90,19 +90,19 @@ author:
 
 EXAMPLES = r'''
 - name: Run a File System Restore for default subclient of default backupset, session file will be used.
-  commvault.ansible.file_servers.restore:
+  xbh03.commvault.file_servers.restore:
     client: "client_name"
     content: "C:\path\of\content"
 
 - name: Run a File System Restore for subclient 'user_subclient' of backupset 'user_backupset', session file will be used.
-  commvault.ansible.file_servers.restore:
+  xbh03.commvault.file_servers.restore:
     client: "client_name"
     backupset: "user_backupset"
     subclient: "user_subclient"
     content: "C:\path\of\content"
     
 - name: Run an In-Place File System Restore for subclient 'user_subclient' of backupset 'user_backupset'.
-  commvault.ansible.file_servers.restore:
+  xbh03.commvault.file_servers.restore:
     webserver_hostname: "web_server_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -113,7 +113,7 @@ EXAMPLES = r'''
     in_place: "yes"
 
 - name: Run an In-Place File System Restore for subclient 'user_subclient' of backupset 'user_backupset' with agent_type of 'Linux File System'.
-  commvault.ansible.file_servers.restore:
+  xbh03.commvault.file_servers.restore:
     webserver_hostname: "web_server_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -134,7 +134,7 @@ job_id:
     sample: '2017'
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

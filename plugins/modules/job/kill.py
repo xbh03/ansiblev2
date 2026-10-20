@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.job.kill
+module: xbh03.commvault.job.kill
 short_description: kills the Job
 description: 
     - This module kills the job
-    - commvault.ansible.job.kill module can be used in playbooks to kill the job
+    - xbh03.commvault.job.kill module can be used in playbooks to kill the job
 
 options:
     webserver_hostname:
@@ -62,21 +62,21 @@ EXAMPLES = '''
 # kills a particular Job
 
 - name: "Kill Job"
-  commvault.ansible.job.kill:
+  xbh03.commvault.job.kill:
     job_id: 3
 
 - name: "kill Job"
-  commvault.ansible.job.kill:
+  xbh03.commvault.job.kill:
     job_id: 7
     wait_for_job_to_kill: False
 
 - name: "kill Job and Wait for kill Task to be completed"
-  commvault.ansible.job.kill:
+  xbh03.commvault.job.kill:
     job_id: 18
     wait_for_job_to_kill: True
 
 - name: "kill Job"
-  commvault.ansible.job.kill:
+  xbh03.commvault.job.kill:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -86,7 +86,7 @@ EXAMPLES = '''
 
 RETURN = r'''#'''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 try:
     from cvpysdk.job import Job
     from cvpysdk.exception import SDKException

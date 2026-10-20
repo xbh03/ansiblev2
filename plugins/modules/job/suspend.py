@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.job.suspend
+module: xbh03.commvault.job.suspend
 short_description: Suspends the Job
 description: 
     - This module suspends the job
-    - commvault.ansible.job.suspend module can be used in playbooks to suspend the job
+    - xbh03.commvault.job.suspend module can be used in playbooks to suspend the job
 
 options:
     webserver_hostname:
@@ -62,21 +62,21 @@ EXAMPLES = '''
 # Suspends a particular Job
 
 - name: "Suspend Job"
-  commvault.ansible.job.suspend:
+  xbh03.commvault.job.suspend:
     job_id: 3
 
 - name: "Suspend Job"
-  commvault.ansible.job.suspend:
+  xbh03.commvault.job.suspend:
     job_id: 7
     wait_for_job_to_suspend: False
 
 - name: "Suspend Job and Wait for Suspend Task to be completed"
-  commvault.ansible.job.suspend:
+  xbh03.commvault.job.suspend:
     job_id: 18
     wait_for_job_to_suspend: True
 
 - name: "Suspend Job"
-  commvault.ansible.job.suspend:
+  xbh03.commvault.job.suspend:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -86,7 +86,7 @@ EXAMPLES = '''
 
 RETURN = r'''#'''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 try:
     from cvpysdk.job import Job
     from cvpysdk.exception import SDKException

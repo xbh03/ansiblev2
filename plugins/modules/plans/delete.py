@@ -19,7 +19,7 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.plans.delete
+module: xbh03.commvault.plans.delete
 short_description: Deletes a plan
 description: 
  - This module deletes a Plan in the CommCell
@@ -50,11 +50,11 @@ author:
 
 EXAMPLES = '''
 - name: Deleting plan
-  commvault.ansible.plans.delete:
+  xbh03.commvault.plans.delete:
     name: "Plan 1"
 
 - name: Deleting plan
-  commvault.ansible.plans.delete:
+  xbh03.commvault.plans.delete:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -63,7 +63,7 @@ EXAMPLES = '''
 
 RETURN = r''' # '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

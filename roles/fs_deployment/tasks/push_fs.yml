@@ -1,6 +1,6 @@
 ---
 - name: Push Install File System Package
-  commvault.ansible.deployment.install_software:
+  xbh03.commvault.deployment.install_software:
     os_type: "{{ os_type }}"
     client_computers: "{{ client_computers }}"
     windows_packages: "{{ windows_packages }}"

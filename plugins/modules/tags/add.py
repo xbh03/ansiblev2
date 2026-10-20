@@ -4,7 +4,7 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.tags.add
+module: xbh03.commvault.tags.add
 short_description: Creates an entity tag
 description:
   - Creates a Command Center entity tag if it does not already exist.
@@ -30,7 +30,7 @@ author:
 
 EXAMPLES = r'''
 - name: Create a tag
-  commvault.ansible.tags.add:
+  xbh03.commvault.tags.add:
     name: Production
 '''
 
@@ -45,8 +45,8 @@ id:
   type: str
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
-from ansible_collections.commvault.ansible.plugins.module_utils.tags import validate_names
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.tags import validate_names
 
 
 def main():

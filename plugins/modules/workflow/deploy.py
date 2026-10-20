@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.workflow.deploy
+module: xbh03.commvault.workflow.deploy
 short_description: Deploys a workflow on the Commcell.
 description: 
     - Deploys a workflow on the Commcell.
-    - commvault.ansible.workflow.deploy module can be used in playbooks to Deploys a workflow on the Commcell.
+    - xbh03.commvault.workflow.deploy module can be used in playbooks to Deploys a workflow on the Commcell.
 
 options:
     webserver_hostname:
@@ -68,19 +68,19 @@ EXAMPLES = '''
 # Deploys a workflow on the Commcell.
 
 - name: "DEPLOY_WORKFLOW"
-  commvault.ansible.workflow.deploy:
+  xbh03.commvault.workflow.deploy:
     workflow_name: "Demo_CheckReadiness"
     workflow_engine:  "TempClient"
     workflow_xml_path:  "C:\TempDir"
 
 - name: "DEPLOY_WORKFLOW"
-  commvault.ansible.workflow.deploy:
+  xbh03.commvault.workflow.deploy:
     workflow_name: "client check readiness"
     workflow_engine:  "TempClient"
     workflow_xml_path:  "C:\TempDir"
 
 - name: "DEPLOY_WORKFLOW"
-  commvault.ansible.workflow.deploy:
+  xbh03.commvault.workflow.deploy:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -92,7 +92,7 @@ EXAMPLES = '''
 
 RETURN = r'''#'''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

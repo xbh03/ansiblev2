@@ -4,7 +4,7 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.clients.client_info
+module: xbh03.commvault.clients.client_info
 short_description: List clients or retrieve the properties of an existing client
 description:
   - Returns properties and the ID of a client entity, including filesystem pseudoclients, using CVPySDK.
@@ -39,16 +39,16 @@ author:
 
 EXAMPLES = r'''
 - name: List clients visible to the SDK
-  commvault.ansible.clients.client_info:
+  xbh03.commvault.clients.client_info:
   register: inventory
 
 - name: Retrieve a filesystem pseudoclient ID and its properties by name
-  commvault.ansible.clients.client_info:
+  xbh03.commvault.clients.client_info:
     client: filesystem-pseudoclient01
   register: pseudoclient
 
 - name: Retrieve properties by client ID
-  commvault.ansible.clients.client_info:
+  xbh03.commvault.clients.client_info:
     client_id: 123
 '''
 
@@ -79,8 +79,8 @@ properties:
 
 from cvpysdk.exception import SDKException
 
-from ansible_collections.commvault.ansible.plugins.module_utils.clients import get_client
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.clients import get_client
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

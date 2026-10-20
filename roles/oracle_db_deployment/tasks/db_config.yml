@@ -1,7 +1,7 @@
 # Database deploy and configuration
 ---
 - name: "Creating disk Storage"
-  commvault.ansible.storage.disk.add:
+  xbh03.commvault.storage.disk.add:
     name: "{{ var_storageName }}"
     media_agent: "{{ var_mediaAgent }}"
     mount_path: "{{ var_mountPath }}"
@@ -9,7 +9,7 @@
   tags: storage
 
 - name: "Creating plan"
-  commvault.ansible.plans.add:
+  xbh03.commvault.plans.add:
     name: "{{ var_plan }}"
     type: "Server"
     storage_pool_name: "{{ var_storageName }}"
@@ -28,7 +28,7 @@
     addServer.yml
 
 - name: "Get client id"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     method: 'GET'
     url: '{0}/GetId?clientname={{ var_clientName }}'
   register: cliIdResp
@@ -45,7 +45,7 @@
   delegate_to: localhost
 
 - name: "Get instance id"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     method: 'GET'
     url: '{0}/instance?clientId={{ client_id }}'
   register: InstIdResp
@@ -60,7 +60,7 @@
     msg: "instance id: {{ instance_id }} : {{ instance_guid }}"
 
 - name: "Re-configure the instance"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     method: 'POST'
     url: '{0}/instance/{{ instance_id }}'
     payload:
@@ -108,7 +108,7 @@
     msg: "reconfigure response: {{ reconf_resp }} "
 
 - name: "Get subclient ID"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     method: 'GET'
     url: '{0}/subclient?clientId={{ client_id }}'
   register: subCliIDResp
@@ -122,7 +122,7 @@
     msg: "subclient id: {{ subclient_Id }} "
 
 - name: "Start Backup"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     method: 'POST'
     url: "{0}/Subclient/{{ subclient_Id }}/\
           action/backup?backupLevel=Incremental&runIncrementalBackup=false&incrementalLevel=AFTER_SYNTH"
@@ -134,7 +134,7 @@
     msg: "backup response: {{ backupResp }} "
 
 - name: "Wait for Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     job_id: "{{ backupResp.response.jobIds[0] | int }}"
     wait_for_job_completion: false
 ...

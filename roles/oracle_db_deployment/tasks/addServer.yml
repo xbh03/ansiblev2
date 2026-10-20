@@ -1,6 +1,6 @@
 ---
 - name: "Add Oracle Server"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     method: 'POST'
     url: '{0}/createTask'
     payload:
@@ -86,6 +86,6 @@
     msg: "{{ jobid_addServer }}"
 
 - name: "Wait for Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     job_id: "{{ jobid_addServer | int }}"
     wait_for_job_completion: true

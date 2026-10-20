@@ -18,7 +18,7 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.request
+module: xbh03.commvault.request
 short_description: Makes a HTTP request on the Commserver API
 description: 
     - This module makes HTTP requests to the Commserver API
@@ -66,13 +66,13 @@ options:
 
 EXAMPLES = '''
 - name: "REQUEST"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     method: 'GET'
     url: '{0}/cvdrbackup/info'
   register: response
 
 - name: "REQUEST_RESTART_SERVICES"
-    commvault.ansible.request:
+    xbh03.commvault.request:
     method: 'POST'
     url: '{0}/services/action/restart'
     payload:
@@ -83,7 +83,7 @@ EXAMPLES = '''
         "allServices": true
 
 - name: "REQUEST"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -104,7 +104,7 @@ response:
 
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

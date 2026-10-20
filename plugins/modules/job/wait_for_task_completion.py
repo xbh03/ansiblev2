@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.job.wait_for_task_completion
+module: xbh03.commvault.job.wait_for_task_completion
 short_description: Wait for Job completion
 description:
     - This module wait the job completion
-    - commvault.ansible.job.wait_for_task_completion module can be used in playbooks to wait the completion of the Job
+    - xbh03.commvault.job.wait_for_task_completion module can be used in playbooks to wait the completion of the Job
 
 options:
     webserver_hostname:
@@ -60,12 +60,12 @@ EXAMPLES = '''
 # Wait the completion of a particular Job
 
 - name: "Wait for task completion Job"
-  commvault.ansible.job.wait_for_task_completion:
+  xbh03.commvault.job.wait_for_task_completion:
     job_id: 3
     timeout: 300
 
 - name: "wait for task completion Job"
-  commvault.ansible.job.wait_for_task_completion:
+  xbh03.commvault.job.wait_for_task_completion:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-password"
@@ -76,7 +76,7 @@ EXAMPLES = '''
 
 RETURN = r'''#'''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 try:
     from cvpysdk.job import Job
     from cvpysdk.exception import SDKException

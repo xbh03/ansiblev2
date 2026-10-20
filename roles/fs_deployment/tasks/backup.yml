@@ -1,6 +1,6 @@
 ---
 - name: Backup Client
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     client: "{{ item }}"
     backupset: "{{ backuptset }}"
     subclient: "{{ subclient }}"

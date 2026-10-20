@@ -1,4 +1,4 @@
-# Ansible Oracle DB Deployment Role - commvault.ansible.oracle_db_deployment
+# Ansible Oracle DB Deployment Role - xbh03.commvault.oracle_db_deployment
 
 Documentation for the Role "Oracle DB Deployment" on Linux.
 For other database deployments, the componentID in file 'addServer.yml' needs to be changed.
@@ -46,7 +46,7 @@ var_osPwd2 | no |  | |  OS base64 Password |
   tasks:
     - name: "DB Role"
       import_role:
-        name: commvault.ansible.oracle_db_deployment
+        name: xbh03.commvault.oracle_db_deployment
       vars:
         webserver_hostname: 'hostname.location' 
         commcell_username: 'username'

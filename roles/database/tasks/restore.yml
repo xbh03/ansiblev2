@@ -1,5 +1,5 @@
 - name: restore database Client
-  commvault.ansible.database.restore:
+  xbh03.commvault.database.restore:
     client: "{{ var_client }}"
     backupset: "{{ var_backupset }}"
     subclient: "{{ var_subclient }}"
@@ -17,7 +17,7 @@
 
 
 - name: wait for task completion Job for multi instance
-  commvault.ansible.job.wait_for_task_completion:
+  xbh03.commvault.job.wait_for_task_completion:
     job_id: "{{  item  }}"
     timeout: "{{ var_commvault_timeout }}"
   loop: "{{ cv_job  | community.general.json_query('results[*].job_id') }}"
@@ -27,7 +27,7 @@
 
 
 - name: wait for task completion Job for an instance
-  commvault.ansible.job.wait_for_task_completion:
+  xbh03.commvault.job.wait_for_task_completion:
     job_id: "{{  cv_job | community.general.json_query('job.id')  }}"
     timeout: "{{ var_commvault_timeout }}"
   when: cv_job | community.general.json_query('results[*].job_id') is undefined

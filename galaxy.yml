@@ -6,19 +6,19 @@
 
 # underscores or numbers and cannot contain consecutive underscores
 
-namespace: commvault
+namespace: xbh03
 
 
 
 # The name of the collection. Has the same character restrictions as 'namespace'
 
-name: ansible
+name: commvault
 
 
 
 # The version of the collection. Must be compatible with semantic versioning
 
-version: 1.0.2
+version: 1.0.3
 
 
 
@@ -35,6 +35,7 @@ readme: README.md
 authors:
 
 - Commvault Systems Inc.
+- '@xbh03 Francesco Zoino'
 
 
 
@@ -109,6 +110,3 @@ issues: https://github.com/Commvault/ansiblev2/issues
 # and '.git' are always filtered
 
 build_ignore: []
-
-
-

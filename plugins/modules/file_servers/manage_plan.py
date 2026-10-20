@@ -18,10 +18,10 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.file_servers.manage_plan
+module: xbh03.commvault.file_servers.manage_plan
 short_description: To change the plan associated to the client, backupset or subclient.
 description:
-    - commvault.ansible.file_servers.manage_plan can be used to change the server plan associated at the client, backupset or subclient level.
+    - xbh03.commvault.file_servers.manage_plan can be used to change the server plan associated at the client, backupset or subclient level.
 options:
  webserver_hostname:
   description:
@@ -62,19 +62,19 @@ options:
 
 EXAMPLES = r'''
 - name: Associate a client to plan 'server plan', session file will be used.
-  commvault.ansible.file_servers.manage_plan:
+  xbh03.commvault.file_servers.manage_plan:
     client: "client_name"
     plan: "server plan"
 
 - name: Associate a user created subclient to plan 'server plan'.
-  commvault.ansible.file_servers.manage_plan:
+  xbh03.commvault.file_servers.manage_plan:
     client: "client_name"
     backupset: "user_backupset"
     subclient: "user_subclient"
     plan: "server plan"
     
 - name: Associate a user created subclient to plan 'server plan'.
-  commvault.ansible.file_servers.manage_plan:
+  xbh03.commvault.file_servers.manage_plan:
     webserver_hostname: "web_server_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -88,7 +88,7 @@ author:
 
 RETURN = r'''#'''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

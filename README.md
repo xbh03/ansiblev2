@@ -1,4 +1,4 @@
-# Ansible Collection - commvault.ansible
+# Ansible Collection - xbh03.commvault
 ----
   * [Requirements](#require)
   * [Install Instructions](#install)
@@ -19,8 +19,8 @@
 ----
 Install ``cvpysdk`` using the ``requirements.txt`` file by running ``pip install -r requirements.txt``  
 
-You can install this collection from the Ansible Galaxy using the command ``ansible-galaxy collection install commvault.ansible``  
-You can also manually clone this repository in the given location ``<Default Ansible Collection Location>/ansible_collections/commvault/`` and rename the repo folder from ``ansiblev2`` to ``ansible`` to install this collection without using Ansible Galaxy
+You can install this collection from the Ansible Galaxy using the command ``ansible-galaxy collection install xbh03.commvault``  
+You can also manually clone this repository in the given location ``<Default Ansible Collection Location>/ansible_collections/xbh03/`` and rename the repo folder from ``ansiblev2`` to ``commvault`` to install this collection without using Ansible Galaxy
 
 ## Contribution Guidelines <a name="contrib"></a>
 ----
@@ -62,80 +62,80 @@ Commvault software assists organizations with data backup and recovery, cloud an
 ### Modules
 
 
-  * [commvault.ansible.login - login in to the commcell with provided credentials or auth token.](#commvault.ansible.login)
+  * [xbh03.commvault.login - login in to the commcell with provided credentials or auth token.](#xbh03.commvault.login)
 
-  * [commvault.ansible.logout - logs out of the commcell.](#commvault.ansible.logout)
+  * [xbh03.commvault.logout - logs out of the commcell.](#xbh03.commvault.logout)
 
-  * [commvault.ansible.request - makes a http request on the commserver api](#commvault.ansible.request)
+  * [xbh03.commvault.request - makes a http request on the commserver api](#xbh03.commvault.request)
 
-  * [commvault.ansible.ansiblev1 - Runs Python SDK functions using the generated entities similar to ansible v1](#commvault.ansible.ansiblev1)
+  * [xbh03.commvault.ansiblev1 - Runs Python SDK functions using the generated entities similar to ansible v1](#xbh03.commvault.ansiblev1)
 
-  * [commvault.ansible.deployment.install_software - to perform push installation from the commserve](#commvault.ansible.deployment.install_software)
+  * [xbh03.commvault.deployment.install_software - to perform push installation from the commserve](#xbh03.commvault.deployment.install_software)
 
-  * [commvault.ansible.deployment.download_software - to perform download software on commserve](#commvault.ansible.deployment.download_software)
+  * [xbh03.commvault.deployment.download_software - to perform download software on commserve](#xbh03.commvault.deployment.download_software)
 
-  * [commvault.ansible.deployment.push_updates - to push updates to the clients from commserver](#commvault.ansible.deployment.push_updates)
+  * [xbh03.commvault.deployment.push_updates - to push updates to the clients from commserver](#xbh03.commvault.deployment.push_updates)
 
-  * [commvault.ansible.file_servers.manage_content - to update the properties of a file server at subclient level.](#commvault.ansible.file_servers.manage_content)
+  * [xbh03.commvault.file_servers.manage_content - to update the properties of a file server at subclient level.](#xbh03.commvault.file_servers.manage_content)
 
-  * [commvault.ansible.file_servers.backup - to perform backup of a file server subclient.](#commvault.ansible.file_servers.backup)
+  * [xbh03.commvault.file_servers.backup - to perform backup of a file server subclient.](#xbh03.commvault.file_servers.backup)
 
-  * [commvault.ansible.file_servers.manage_plan - to change the plan associated to the client, backupset or subclient.](#commvault.ansible.file_servers.manage_plan)
+  * [xbh03.commvault.file_servers.manage_plan - to change the plan associated to the client, backupset or subclient.](#xbh03.commvault.file_servers.manage_plan)
 
-  * [commvault.ansible.clients.manage_client - manages an existing client or pseudoclient description.](#client-properties)
+  * [xbh03.commvault.clients.manage_client - manages an existing client or pseudoclient description.](#client-properties)
 
-  * [commvault.ansible.clients.client_info - lists clients or retrieves client properties and IDs.](#client-properties)
+  * [xbh03.commvault.clients.client_info - lists clients or retrieves client properties and IDs.](#client-properties)
 
-  * [commvault.ansible.file_servers.restore - to perform restore of a file server subclient.](#commvault.ansible.file_servers.restore)
+  * [xbh03.commvault.file_servers.restore - to perform restore of a file server subclient.](#xbh03.commvault.file_servers.restore)
 
-  * [commvault.ansible.database.backup - to perform backup of a database subclient.](#commvault.ansible.database.backup)
+  * [xbh03.commvault.database.backup - to perform backup of a database subclient.](#xbh03.commvault.database.backup)
 
-  * [commvault.ansible.database.restore - to perform restore of a database subclient.](#commvault.ansibe.database.restore)
+  * [xbh03.commvault.database.restore - to perform restore of a database subclient.](#commvault.ansibe.database.restore)
 
-  * [commvault.ansible.job.kill - kills the job](#commvault.ansible.job.kill)
+  * [xbh03.commvault.job.kill - kills the job](#xbh03.commvault.job.kill)
 
-  * [commvault.ansible.job.resume - resumes the job](#commvault.ansible.job.resume)
+  * [xbh03.commvault.job.resume - resumes the job](#xbh03.commvault.job.resume)
 
-  * [commvault.ansible.job.status - checks the status of the job](#commvault.ansible.job.status)
+  * [xbh03.commvault.job.status - checks the status of the job](#xbh03.commvault.job.status)
 
-  * [commvault.ansible.job.suspend - suspends the job](#commvault.ansible.job.suspend)
+  * [xbh03.commvault.job.suspend - suspends the job](#xbh03.commvault.job.suspend)
 
-  * [commvault.ansible.job.wait_for_task_completion - wait the completion of the job](#commvault.ansible.job.wait_for_task_completion)
+  * [xbh03.commvault.job.wait_for_task_completion - wait the completion of the job](#xbh03.commvault.job.wait_for_task_completion)
 
-  * [commvault.ansible.plans.add - creates a plan](#commvault.ansible.plans.add)
+  * [xbh03.commvault.plans.add - creates a plan](#xbh03.commvault.plans.add)
 
-  * [commvault.ansible.plans.delete - deletes a plan](#commvault.ansible.plans.delete)
+  * [xbh03.commvault.plans.delete - deletes a plan](#xbh03.commvault.plans.delete)
 
-  * [commvault.ansible.tags.add - creates an entity tag](#entity-tags)
+  * [xbh03.commvault.tags.add - creates an entity tag](#entity-tags)
 
-  * [commvault.ansible.tags.update - renames an entity tag globally](#entity-tags)
+  * [xbh03.commvault.tags.update - renames an entity tag globally](#entity-tags)
 
-  * [commvault.ansible.tags.delete - deletes an entity tag globally](#entity-tags)
+  * [xbh03.commvault.tags.delete - deletes an entity tag globally](#entity-tags)
 
-  * [commvault.ansible.tags.manage_clients - associates or removes tags on clients and pseudoclients](#entity-tags)
+  * [xbh03.commvault.tags.manage_clients - associates or removes tags on clients and pseudoclients](#entity-tags)
 
-  * [commvault.ansible.workflow.execute - executes the workflow with the workflow name and inputs](#commvault.ansible.workflow.execute)
+  * [xbh03.commvault.workflow.execute - executes the workflow with the workflow name and inputs](#xbh03.commvault.workflow.execute)
 
-  * [commvault.ansible.workflow.deploy - deploys a workflow on the commcell.](#commvault.ansible.workflow.deploy)
+  * [xbh03.commvault.workflow.deploy - deploys a workflow on the commcell.](#xbh03.commvault.workflow.deploy)
 
-  * [commvault.ansible.workflow.export - exports the workflow to the directory location specified by the user.](#commvault.ansible.workflow.export)
+  * [xbh03.commvault.workflow.export - exports the workflow to the directory location specified by the user.](#xbh03.commvault.workflow.export)
 
-  * [commvault.ansible.workflow.import - imports a workflow to the commcell.](#commvault.ansible.workflow.import)
+  * [xbh03.commvault.workflow.import - imports a workflow to the commcell.](#xbh03.commvault.workflow.import)
 
-  * [commvault.ansible.storage.disk.detail - gets details of a disk storage](#commvault.ansible.storage.disk.detail)
+  * [xbh03.commvault.storage.disk.detail - gets details of a disk storage](#xbh03.commvault.storage.disk.detail)
 
-  * [commvault.ansible.storage.disk.add - creates a disk storage](#commvault.ansible.storage.disk.add)
+  * [xbh03.commvault.storage.disk.add - creates a disk storage](#xbh03.commvault.storage.disk.add)
 
 
 ---
 
 
-## commvault.ansible.login <a name="commvault.ansible.login"></a>
+## xbh03.commvault.login <a name="xbh03.commvault.login"></a>
 Login in to the Commcell with provided credentials or auth token.
 
 
 #### Synopsis
- commvault.ansible.login can be used to login to Commcell using credentials or auth. token.
+ xbh03.commvault.login can be used to login to Commcell using credentials or auth. token.
 
 
 
@@ -183,7 +183,7 @@ authtoken |  On success  |   str  |   The authentication token  |   QSDK value_o
 
 ```
 - name: Log in to the Commcell
-  commvault.ansible.login:
+  xbh03.commvault.login:
     webserver_hostname: 'web_server_hostname' 
     commcell_username: 'user'
     commcell_password: 'password'
@@ -214,12 +214,12 @@ authtoken |  On success  |   str  |   The authentication token  |   QSDK value_o
 
 
 
-## commvault.ansible.logout <a name="commvault.ansible.logout"></a>
+## xbh03.commvault.logout <a name="xbh03.commvault.logout"></a>
 Logs out of the Commcell.
 
 
 #### Synopsis
- commvault.ansible.logout can be used to logout of the Commcell stored in the session file.
+ xbh03.commvault.logout can be used to logout of the Commcell stored in the session file.
 
 
 
@@ -249,7 +249,7 @@ Logs out of the Commcell.
 
 ```
 - name: Log out of the Commcell
-  commvault.ansible.logout:
+  xbh03.commvault.logout:
 
 ```
 
@@ -277,7 +277,7 @@ Logs out of the Commcell.
 
 
 
-## commvault.ansible.request <a name="commvault.ansible.request"></a>
+## xbh03.commvault.request <a name="xbh03.commvault.request"></a>
 Makes a HTTP request on the Commserver API
 
 
@@ -328,13 +328,13 @@ response |  success  |   dict  |   Response of the HTTP request  |   {'errorCode
 
 ```
 - name: "REQUEST"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     method: 'GET'
     url: '{0}/cvdrbackup/info'
   register: response
 
 - name: "REQUEST_RESTART_SERVICES"
-    commvault.ansible.request:
+    xbh03.commvault.request:
     method: 'POST'
     url: '{0}/services/action/restart'
     payload:
@@ -345,7 +345,7 @@ response |  success  |   dict  |   Response of the HTTP request  |   {'errorCode
         "allServices": true
 
 - name: "REQUEST"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -378,7 +378,7 @@ response |  success  |   dict  |   Response of the HTTP request  |   {'errorCode
 
 
 
-## commvault.ansible.ansiblev1 <a name="commvault.ansible.ansiblev1"></a>
+## xbh03.commvault.ansiblev1 <a name="xbh03.commvault.ansiblev1"></a>
 Runs Python SDK functions using the generated entities similar to ansible v1
 
 
@@ -429,7 +429,7 @@ response |  success  |   dict  |   Response from the SDK function  |   {'errorCo
 
 ```
 - name: "GET_CLIENT_ID"
-  commvault.ansible.ansiblev1:
+  xbh03.commvault.ansiblev1:
     operation: "client_id"
     entity_type: client
     entity_filter: {
@@ -438,7 +438,7 @@ response |  success  |   dict  |   Response from the SDK function  |   {'errorCo
   register: output
 
 - name: "GET_JOB_DETAILS"
-  commvault.ansible.ansibleV1:
+  xbh03.commvault.ansibleV1:
     operation: "_get_job_details"
     entity_type: job
     entity: {
@@ -447,7 +447,7 @@ response |  success  |   dict  |   Response from the SDK function  |   {'errorCo
   register: output
 
 - name: "CHECK_IF_CLIENT_EXISTS"
-  commvault.ansible.request:
+  xbh03.commvault.request:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -482,13 +482,13 @@ response |  success  |   dict  |   Response from the SDK function  |   {'errorCo
 ---
 
 
-## commvault.ansible.deployment.install_software <a name="commvault.ansible.deployment.install_software"></a>
+## xbh03.commvault.deployment.install_software <a name="xbh03.commvault.deployment.install_software"></a>
 To perform Push Installation from the Commserve
 
 
 #### Synopsis
  This module performs a Fresh Push Installation to Client Machine from the CommCell
- commvault.ansible.deployment.install_software module can be used in playbooks to perform Push Installs to Clients
+ xbh03.commvault.deployment.install_software module can be used in playbooks to perform Push Installs to Clients
 
 
 
@@ -548,7 +548,7 @@ job_id |  success  |   str  |   Push Software Job ID  |   2016  |
 # Run a Push Installation to the client from Commserver.
 
 - name: "INSTALL_SOFTWARE/PUSH_INSTALL"
-  commvault.ansible.deployment.install_software:
+  xbh03.commvault.deployment.install_software:
     os_type: "windows"
     client_computers:
       - hostname1.example.com
@@ -569,7 +569,7 @@ job_id |  success  |   str  |   Push Software Job ID  |   2016  |
     ssh_key_passphrase: "passphrase"
 
 - name: "INSTALL_SOFTWARE/PUSH_INSTALL_WINDOWS"
-  commvault.ansible.deployment.install_software:
+  xbh03.commvault.deployment.install_software:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -591,7 +591,7 @@ job_id |  success  |   str  |   Push Software Job ID  |   2016  |
     wait_for_job_completion: True
 
 - name: "INSTALL_SOFTWARE/PUSH_INSTALL_UNIX"
-  commvault.ansible.deployment.install_software:
+  xbh03.commvault.deployment.install_software:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -651,13 +651,13 @@ notes:
 
 
 
-## commvault.ansible.deployment.download_software <a name="commvault.ansible.deployment.download_software"></a>
+## xbh03.commvault.deployment.download_software <a name="xbh03.commvault.deployment.download_software"></a>
 To perform Download Software on Commserve
 
 
 #### Synopsis
  This module Downloads Media/Latest Payload from the Internet
- commvault.ansible.deployment.download_software module can be used in playbooks to perform Download Software on CS
+ xbh03.commvault.deployment.download_software module can be used in playbooks to perform Download Software on CS
 
 
 
@@ -710,7 +710,7 @@ job_id |  success  |   str  |   Download Software Job ID  |   2016  |
 # Run a Download Job on the Commserver.
 
 - name: "DOWNLOAD_SOFTWARE"
-  commvault.ansible.deployment.download_software:
+  xbh03.commvault.deployment.download_software:
     download_option: "LATEST_SERVICEPACK"
     os_list:
       - WINDOWS_64
@@ -719,7 +719,7 @@ job_id |  success  |   str  |   Download Software Job ID  |   2016  |
     wait_for_job_completion: False
 
 - name: "DOWNLOAD_SOFTWARE"
-  commvault.ansible.deployment.download_software:
+  xbh03.commvault.deployment.download_software:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -730,7 +730,7 @@ job_id |  success  |   str  |   Download Software Job ID  |   2016  |
     sync_cache: False
 
 - name: "DOWNLOAD_SOFTWARE"
-  commvault.ansible.deployment.download_software:
+  xbh03.commvault.deployment.download_software:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -776,13 +776,13 @@ job_id |  success  |   str  |   Download Software Job ID  |   2016  |
 
 
 
-## commvault.ansible.deployment.push_updates <a name="commvault.ansible.deployment.push_updates"></a>
+## xbh03.commvault.deployment.push_updates <a name="xbh03.commvault.deployment.push_updates"></a>
 To Push Updates to the Clients from Commserver
 
 
 #### Synopsis
  This module pushes latest Updates to client from CommCell
- commvault.ansible.deployment.push_updates module can be used in playbooks to perform Push Updates to Clients
+ xbh03.commvault.deployment.push_updates module can be used in playbooks to perform Push Updates to Clients
 
 
 
@@ -835,13 +835,13 @@ job_id |  success  |   str  |   Push Updates Job ID  |   2016  |
 # Run a File System Backup for default subclient of default backupset.
 
 - name: "PUSH_UPDATES_TO_ALL_THE_CLIENTS"
-  commvault.ansible.deployment.push_updates:
+  xbh03.commvault.deployment.push_updates:
     update_all_client_computers: True
     reboot_client: False
     wait_for_job_completion: False
 
 - name: "PUSH_UPDATES_TO_ALL_CLIENT_GROUPS"
-  commvault.ansible.deployment.push_updates:
+  xbh03.commvault.deployment.push_updates:
     client_names: 
       - clientname1
       - clientname2
@@ -849,7 +849,7 @@ job_id |  success  |   str  |   Push Updates Job ID  |   2016  |
     reboot_client: False
 
 - name: "PUSH_UPDATES"
-  commvault.ansible.deployment.push_updates:
+  xbh03.commvault.deployment.push_updates:
     client_names: 
       - clientname1
       - clientname2
@@ -862,7 +862,7 @@ job_id |  success  |   str  |   Push Updates Job ID  |   2016  |
     wait_for_job_completion: True
 
 - name: "PUSH_UPDATES"
-  commvault.ansible.deployment.push_updates:
+  xbh03.commvault.deployment.push_updates:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -901,12 +901,12 @@ job_id |  success  |   str  |   Push Updates Job ID  |   2016  |
 
 
 
-## commvault.ansible.file_servers.manage_content <a name="commvault.ansible.file_servers.manage_content"></a>
+## xbh03.commvault.file_servers.manage_content <a name="xbh03.commvault.file_servers.manage_content"></a>
 To update the properties of a file server at subclient level.
 
 
 #### Synopsis
- commvault.ansible.file_servers.manage_content can be used to update the content, filters and exceptions of a File System subclient.
+ xbh03.commvault.file_servers.manage_content can be used to update the content, filters and exceptions of a File System subclient.
  keys for 'update' are 'content', 'filter_content', 'exception_content' & will ALWAYS OVERWRITE existing values.
 
 
@@ -950,7 +950,7 @@ update  |   yes  |  | <ul> <li>content</li>  <li>filter_content</li>  <li>except
 
 ```
 - name: Update a File System subclient's content and filter, session file would be used.
-  commvault.ansible.file_servers.manage_content:
+  xbh03.commvault.file_servers.manage_content:
     client: "client_name"
     backupset: "user_backupset"
     subclient: "user_subclient"
@@ -963,7 +963,7 @@ update  |   yes  |  | <ul> <li>content</li>  <li>filter_content</li>  <li>except
             - C:\ANSIBLE_PATH1\FILTER2      
 
 - name: Update a File System subclient's content and filter.
-  commvault.ansible.file_servers.manage_content:
+  xbh03.commvault.file_servers.manage_content:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -1004,12 +1004,12 @@ update  |   yes  |  | <ul> <li>content</li>  <li>filter_content</li>  <li>except
 
 
 
-## commvault.ansible.file_servers.backup <a name="commvault.ansible.file_servers.backup"></a>
+## xbh03.commvault.file_servers.backup <a name="xbh03.commvault.file_servers.backup"></a>
 To perform backup of a file server subclient.
 
 
 #### Synopsis
- commvault.ansible.file_servers.backup can be used to perform file server backup operation.
+ xbh03.commvault.file_servers.backup can be used to perform file server backup operation.
 
 
 
@@ -1059,24 +1059,24 @@ job_id |  On success  |   str  |   Backup job ID  |   2016  |
 
 ```
 - name: Run an incremental(default) File System Backup for default subclient of default backupset, session file would be used.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     client: "client_name"
 
 - name: Run an incremental(default) File System Backup for subclient 'user_subclient' of backupset 'user_backupset', session file would be used.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     client: "client_name"
     backupset: "user_backupset"
     subclient: "user_subclient"
         
 - name: Run an incremental(default) File System Backup for default subclient of default backupset.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
     client: "client_name"
 
 - name: Run an incremental(default) File System Backup for subclient 'user_subclient' of backupset 'user_backupset'.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -1085,7 +1085,7 @@ job_id |  On success  |   str  |   Backup job ID  |   2016  |
     subclient: "user_subclient"
 
 - name: Run an incremental(default) File System Backup for subclient 'user_subclient' of backupset 'user_backupset'i with agent_type of Linux File System.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     webserver_hostname: "web_server_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -1095,7 +1095,7 @@ job_id |  On success  |   str  |   Backup job ID  |   2016  |
     agent_type: "Linux File System"
 
 - name: Run a full File System Backup for subclient 'user_subclient' of backupset 'user_backupset' specifying 'backup_level' as Full.
-  commvault.ansible.file_servers.backup:
+  xbh03.commvault.file_servers.backup:
     webserver_hostname: "web_server_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -1131,12 +1131,12 @@ job_id |  On success  |   str  |   Backup job ID  |   2016  |
 
 
 
-## commvault.ansible.file_servers.manage_plan <a name="commvault.ansible.file_servers.manage_plan"></a>
+## xbh03.commvault.file_servers.manage_plan <a name="xbh03.commvault.file_servers.manage_plan"></a>
 To change the plan associated to the client, backupset or subclient.
 
 
 #### Synopsis
- commvault.ansible.file_servers.manage_plan can be used to change the server plan associated at the client, backupset or subclient level.
+ xbh03.commvault.file_servers.manage_plan can be used to change the server plan associated at the client, backupset or subclient level.
 
 
 
@@ -1177,19 +1177,19 @@ subclient  |   no  |  | |  The name of the subclient. |
 
 ```
 - name: Associate a client to plan 'server plan', session file will be used.
-  commvault.ansible.file_servers.manage_plan:
+  xbh03.commvault.file_servers.manage_plan:
     client: "client_name"
     plan: "server plan"
 
 - name: Associate a user created subclient to plan 'server plan'.
-  commvault.ansible.file_servers.manage_plan:
+  xbh03.commvault.file_servers.manage_plan:
     client: "client_name"
     backupset: "user_backupset"
     subclient: "user_subclient"
     plan: "server plan"
     
 - name: Associate a user created subclient to plan 'server plan'.
-  commvault.ansible.file_servers.manage_plan:
+  xbh03.commvault.file_servers.manage_plan:
     webserver_hostname: "web_server_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -1224,12 +1224,12 @@ author:
 
 
 
-## commvault.ansible.file_servers.restore <a name="commvault.ansible.file_servers.restore"></a>
+## xbh03.commvault.file_servers.restore <a name="xbh03.commvault.file_servers.restore"></a>
 To perform restore of a file server subclient.
 
 
 #### Synopsis
- commvault.ansible.file_servers.restore can be used to perform a file server restore operation.
+ xbh03.commvault.file_servers.restore can be used to perform a file server restore operation.
 
 
 
@@ -1282,19 +1282,19 @@ job_id |  On success  |   str  |   Restore job ID  |   2017  |
 
 ```
 - name: Run a File System Restore for default subclient of default backupset, session file will be used.
-  commvault.ansible.file_servers.restore:
+  xbh03.commvault.file_servers.restore:
     client: "client_name"
     content: "C:\path\of\content"
 
 - name: Run a File System Restore for subclient 'user_subclient' of backupset 'user_backupset', session file will be used.
-  commvault.ansible.file_servers.restore:
+  xbh03.commvault.file_servers.restore:
     client: "client_name"
     backupset: "user_backupset"
     subclient: "user_subclient"
     content: "C:\path\of\content"
 
 - name: Run a File System Restore for subclient 'user_subclient' of backupset 'user_backupset' and agent_type of Linux File System, session file will be used.
-  commvault.ansible.file_servers.restore:
+  xbh03.commvault.file_servers.restore:
     client: "client_name"
     backupset: "user_backupset"
     subclient: "user_subclient"
@@ -1302,7 +1302,7 @@ job_id |  On success  |   str  |   Restore job ID  |   2017  |
     content: "C:\path\of\content"
     
 - name: Run an In-Place File System Restore for subclient 'user_subclient' of backupset 'user_backupset'.
-  commvault.ansible.file_servers.restore:
+  xbh03.commvault.file_servers.restore:
     webserver_hostname: "web_server_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -1340,12 +1340,12 @@ job_id |  On success  |   str  |   Restore job ID  |   2017  |
 
 
 
-## commvault.ansible.database.backup <a name="commvault.ansible.database.backup"></a>
+## xbh03.commvault.database.backup <a name="xbh03.commvault.database.backup"></a>
 To perform backup of a database subclient.
 
 
 #### Synopsis
-  commvault.ansible.database.backup can be used to perform database backup operation.
+  xbh03.commvault.database.backup can be used to perform database backup operation.
  
 
 
@@ -1396,13 +1396,13 @@ job_id |  On success  |   str  |   Backup job ID  |   2025  |
 
 ```
 - name: Run a Database Backup for a default subclient of a default backupset, session file will be used.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     client: "client_name"
     instance: "instance_name"
     agent_type: "mysql
 
 - name: Run a Database Backup for subclient 'user_subclient' of backupset 'user_backupset', session file will be used.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     client: "client_name"
     instance: "instance_name"
     backupset: "user_backupset"
@@ -1410,7 +1410,7 @@ job_id |  On success  |   str  |   Backup job ID  |   2025  |
     agent_type: "mysql
 
 - name: Run a Database Backup for default subclient of default backupset.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     webserver_hostname: "webserver_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -1419,7 +1419,7 @@ job_id |  On success  |   str  |   Backup job ID  |   2025  |
     agent_type: "mysql
 
 - name: Run a Database Backup for subclient 'user_subclient' of backupse ' user_backupset'.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     webserver_hostname: "webserver_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -1430,7 +1430,7 @@ job_id |  On success  |   str  |   Backup job ID  |   2025  |
     agent_type: "mysql
 
 - name: run a Database Backup for subclient 'user_subclient' of backupset 'user_backupset' with agent_type of 'mysql'.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     webserver_hostname: "webserver_hostname"
     commecell_username: "user"
     commcell_password: "password"
@@ -1466,12 +1466,12 @@ job_id |  On success  |   str  |   Backup job ID  |   2025  |
 
 
 
-## commvault.ansible.database.restore <a name ="commvault.ansibe.database.restore"></a>
+## xbh03.commvault.database.restore <a name ="commvault.ansibe.database.restore"></a>
 To perform of a database subclient.
 
 
 #### Synopsis
-  commvault.ansible.database.restore can be used to perform a database restore operation.
+  xbh03.commvault.database.restore can be used to perform a database restore operation.
 
 
 
@@ -1527,12 +1527,12 @@ job_id |  On success  |   str  |   Restore job ID  |   2025  |
 
 ```
 - name: Run a Database Restore for default subclient of default backupset with agent_type of 'mysql', session file will be used.
-  commvault.ansible.database.restore:
+  xbh03.commvault.database.restore:
    client: "client_name"
    instance: "instance_name"
 
 - name: Run a Database Restore for subclient for subclient 'user_subclient' of backupset 'user_backupset' with agent_type of 'mysql', session file will be used.
-  commvault.ansible.database.restore:
+  xbh03.commvault.database.restore:
    client: "client_name"
    instance: "instance_name"
    backupset: "user_backupset"
@@ -1541,14 +1541,14 @@ job_id |  On success  |   str  |   Restore job ID  |   2025  |
    content: "/database_name"
 
 - name: Run a Database Restore for default subclient of default backupset with agent_type of 'mysql' and to date '2025/05/16 08:00:00', session file will be used.
-  commvault.ansible.database.restore
+  xbh03.commvault.database.restore
     client: "client_name"
     instance: "instance_name"
     agent_type: "mysql
     to_date: "2025/05/16 08:00:00"
 
 - name: Run a Database Restore out of place for default subclient of default backupset with agent_type of 'mysql' and to date '2025/05/16 08:00:00', session file will be used.
-  commvault.ansible.database.restore
+  xbh03.commvault.database.restore
     client: "client_name"
     instance: "instance_name"
     agent_type: "mysql
@@ -1557,7 +1557,7 @@ job_id |  On success  |   str  |   Restore job ID  |   2025  |
     destination_instance: "destination_instance_name"
 
 - name: Run a Database Restore out of place for default subclient of default backupset with agent_type of 'mysql', session file will be used.
-  commvault.ansible.database.restore
+  xbh03.commvault.database.restore
     client: "client_name"
     instance: "instance_name"
     agent_type: "mysql
@@ -1593,13 +1593,13 @@ job_id |  On success  |   str  |   Restore job ID  |   2025  |
 
 
 
-## commvault.ansible.job.kill <a name="commvault.ansible.job.kill"></a>
+## xbh03.commvault.job.kill <a name="xbh03.commvault.job.kill"></a>
 kills the Job
 
 
 #### Synopsis
  This module kills the job
- commvault.ansible.job.kill module can be used in playbooks to kill the job
+ xbh03.commvault.job.kill module can be used in playbooks to kill the job
 
 
 
@@ -1640,21 +1640,21 @@ wait_for_job_to_kill  |   no  |  False  | |  wait till job status is changed to 
 # kills a particular Job
 
 - name: "Kill Job"
-  commvault.ansible.job.kill:
+  xbh03.commvault.job.kill:
     job_id: 3
 
 - name: "kill Job"
-  commvault.ansible.job.kill:
+  xbh03.commvault.job.kill:
     job_id: 7
     wait_for_job_to_kill: False
 
 - name: "kill Job and Wait for kill Task to be completed"
-  commvault.ansible.job.kill:
+  xbh03.commvault.job.kill:
     job_id: 18
     wait_for_job_to_kill: True
 
 - name: "kill Job"
-  commvault.ansible.job.kill:
+  xbh03.commvault.job.kill:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -1685,13 +1685,13 @@ wait_for_job_to_kill  |   no  |  False  | |  wait till job status is changed to 
 
 
 
-## commvault.ansible.job.resume <a name="commvault.ansible.job.resume"></a>
+## xbh03.commvault.job.resume <a name="xbh03.commvault.job.resume"></a>
 Resumes the Job
 
 
 #### Synopsis
  This module resumes the job
- commvault.ansible.job.resume module can be used in playbooks to resume the job
+ xbh03.commvault.job.resume module can be used in playbooks to resume the job
 
 
 
@@ -1732,21 +1732,21 @@ wait_for_job_to_resume  |   no  |  False  | |  wait till job status is changed t
 # Resumes a particular Job
 
 - name: "Resume Job"
-  commvault.ansible.job.resume:
+  xbh03.commvault.job.resume:
     job_id: 3
 
 - name: "Resume Job"
-  commvault.ansible.job.resume:
+  xbh03.commvault.job.resume:
     job_id: 7
     wait_for_job_to_resume: False
 
 - name: "Resume Job and Wait for Resume Task to be completed"
-  commvault.ansible.job.resume:
+  xbh03.commvault.job.resume:
     job_id: 18
     wait_for_job_to_resume: True
 
 - name: "Resume Job"
-  commvault.ansible.job.resume:
+  xbh03.commvault.job.resume:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -1777,13 +1777,13 @@ wait_for_job_to_resume  |   no  |  False  | |  wait till job status is changed t
 
 
 
-## commvault.ansible.job.status <a name="commvault.ansible.job.status"></a>
+## xbh03.commvault.job.status <a name="xbh03.commvault.job.status"></a>
 Checks the status of the Job
 
 
 #### Synopsis
  This module Checks the Job Status
- commvault.ansible.job.status module can be used in playbooks to check the job status
+ xbh03.commvault.job.status module can be used in playbooks to check the job status
 
 
 
@@ -1830,21 +1830,21 @@ job_id |  |   str  |   Status of the Job  |   Running/Completed  |
 # Checks the status of the particular Job
 
 - name: "Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     job_id: 3
 
 - name: "Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     job_id: 7
     wait_for_job_completion: False
 
 - name: "Wait for Job Completion and provide the Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     job_id: 18
     wait_for_job_completion: True
 
 - name: "Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -1875,13 +1875,13 @@ job_id |  |   str  |   Status of the Job  |   Running/Completed  |
 
 
 
-## commvault.ansible.job.suspend <a name="commvault.ansible.job.suspend"></a>
+## xbh03.commvault.job.suspend <a name="xbh03.commvault.job.suspend"></a>
 Suspends the Job
 
 
 #### Synopsis
  This module suspends the job
- commvault.ansible.job.suspend module can be used in playbooks to suspend the job
+ xbh03.commvault.job.suspend module can be used in playbooks to suspend the job
 
 
 
@@ -1922,21 +1922,21 @@ wait_for_job_to_suspend  |   no  |  False  | |  wait until job status is changed
 # Suspends a particular Job
 
 - name: "Suspend Job"
-  commvault.ansible.job.suspend:
+  xbh03.commvault.job.suspend:
     job_id: 3
 
 - name: "Suspend Job"
-  commvault.ansible.job.suspend:
+  xbh03.commvault.job.suspend:
     job_id: 7
     wait_for_job_to_suspend: False
 
 - name: "Suspend Job and Wait for Suspend Task to be completed"
-  commvault.ansible.job.suspend:
+  xbh03.commvault.job.suspend:
     job_id: 18
     wait_for_job_to_suspend: True
 
 - name: "Suspend Job"
-  commvault.ansible.job.suspend:
+  xbh03.commvault.job.suspend:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -1965,13 +1965,13 @@ wait_for_job_to_suspend  |   no  |  False  | |  wait until job status is changed
 ---
 
 
-## commvault.ansible.job.wait_for_task_completion <a name="commvault.ansible.job.wait_for_task_completion"></a>
+## xbh03.commvault.job.wait_for_task_completion <a name="xbh03.commvault.job.wait_for_task_completion"></a>
 Wait the completion of a the Job
 
 
 #### Synopsis
   This module wait the job completion
-  commvault.ansible.job.wait_for_task_completion module can be used in playbooks to wait the completion of the Job
+  xbh03.commvault.job.wait_for_task_completion module can be used in playbooks to wait the completion of the Job
 
 
 
@@ -2012,12 +2012,12 @@ timeout  |   yes  |  | |  Time for timeout |
 # Wait the completion of a particular Job
 
 - name: "Wait for task completion Job"
-  commvault.ansible.job.wait_for_task_completion:
+  xbh03.commvault.job.wait_for_task_completion:
     job_id: 3
     timeout: 300
 
 - name: "wait for task completion Job"
-  commvault.ansible.job.wait_for_task_completion:
+  xbh03.commvault.job.wait_for_task_completion:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-password"
@@ -2047,7 +2047,7 @@ timeout  |   yes  |  | |  Time for timeout |
 
 
 
-## commvault.ansible.plans.add <a name="commvault.ansible.plans.add"></a>
+## xbh03.commvault.plans.add <a name="xbh03.commvault.plans.add"></a>
 Creates a plan
 
 
@@ -2101,18 +2101,18 @@ name |  Success  |   str  |   The name of the plan created  |   Plan 1  |id |  S
 
 ```
 - name: Creating a plan
-  commvault.ansible.plans.add:
+  xbh03.commvault.plans.add:
     name: "Plan 1"
     storage_pool_name: "storage2"
 
 - name: Creating a plan with 7 days RPO
-  commvault.ansible.plans.add:
+  xbh03.commvault.plans.add:
     name: "Plan 1"
     storage_pool_name: "storage2"
     rpo_minutes: 10080
 
 - name: Creating a "Server" plan with 2 days RPO
-  commvault.ansible.plans.add:
+  xbh03.commvault.plans.add:
     name: "Plan 1"
     type: "Server"
     storage_pool_name: "storage2"
@@ -2120,7 +2120,7 @@ name |  Success  |   str  |   The name of the plan created  |   Plan 1  |id |  S
     rpo_minutes: 2880
 
 - name: Creating a "Server" plan with 2 days RPO
-  commvault.ansible.plans.add:
+  xbh03.commvault.plans.add:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -2155,7 +2155,7 @@ name |  Success  |   str  |   The name of the plan created  |   Plan 1  |id |  S
 
 
 
-## commvault.ansible.plans.delete <a name="commvault.ansible.plans.delete"></a>
+## xbh03.commvault.plans.delete <a name="xbh03.commvault.plans.delete"></a>
 Deletes a plan
 
 
@@ -2200,11 +2200,11 @@ name  |   yes  |  | |  The name of the plan to delete. |
 
 ```
 - name: Deleting plan
-  commvault.ansible.plans.delete:
+  xbh03.commvault.plans.delete:
     name: "Plan 1"
 
 - name: Deleting plan
-  commvault.ansible.plans.delete:
+  xbh03.commvault.plans.delete:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -2236,13 +2236,13 @@ name  |   yes  |  | |  The name of the plan to delete. |
 
 
 
-## commvault.ansible.workflow.execute <a name="commvault.ansible.workflow.execute"></a>
+## xbh03.commvault.workflow.execute <a name="xbh03.commvault.workflow.execute"></a>
 Executes the workflow with the workflow name and inputs
 
 
 #### Synopsis
  This module executes the given Workflow along with it's inputs
- commvault.ansible.workflow.execute module can be used in playbooks to execute the Workflows on client from Commcell
+ xbh03.commvault.workflow.execute module can be used in playbooks to execute the Workflows on client from Commcell
 
 
 
@@ -2290,13 +2290,13 @@ job_id |  success  |   str  |   Relevant workflow job ID (-1 if N/A)  |   2016  
 # Executes the workflow on given Clients/ClientGroups with the workflow name as inputs
 
 - name: "EXECUTE_WORKFLOW"
-  commvault.ansible.workflow.execute:
+  xbh03.commvault.workflow.execute:
     workflow_name: "Demo_CheckReadiness"
     workflow_inputs: 
         ClientGroupName: "client_group1"
 
 - name: "EXECUTE_WORKFLOW"
-  commvault.ansible.workflow.execute:
+  xbh03.commvault.workflow.execute:
     workflow_name: "client check readiness"
     workflow_inputs: 
         input1_name: "input1_value"
@@ -2305,7 +2305,7 @@ job_id |  success  |   str  |   Relevant workflow job ID (-1 if N/A)  |   2016  
     wait_for_job_completion: False
 
 - name: "EXECUTE_WORKFLOW"
-  commvault.ansible.workflow.execute:
+  xbh03.commvault.workflow.execute:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -2340,13 +2340,13 @@ job_id |  success  |   str  |   Relevant workflow job ID (-1 if N/A)  |   2016  
 
 
 
-## commvault.ansible.workflow.deploy <a name="commvault.ansible.workflow.deploy"></a>
+## xbh03.commvault.workflow.deploy <a name="xbh03.commvault.workflow.deploy"></a>
 Deploys a workflow on the Commcell.
 
 
 #### Synopsis
  Deploys a workflow on the Commcell.
- commvault.ansible.workflow.deploy module can be used in playbooks to Deploys a workflow on the Commcell.
+ xbh03.commvault.workflow.deploy module can be used in playbooks to Deploys a workflow on the Commcell.
 
 
 
@@ -2388,19 +2388,19 @@ workflow_xml_path  |   yes  |  | |  path of the workflow xml file / XMl contents
 # Deploys a workflow on the Commcell.
 
 - name: "DEPLOY_WORKFLOW"
-  commvault.ansible.workflow.deploy:
+  xbh03.commvault.workflow.deploy:
     workflow_name: "Demo_CheckReadiness"
     workflow_engine:  "TempClient"
     workflow_xml_path:  "C:\TempDir"
 
 - name: "DEPLOY_WORKFLOW"
-  commvault.ansible.workflow.deploy:
+  xbh03.commvault.workflow.deploy:
     workflow_name: "client check readiness"
     workflow_engine:  "TempClient"
     workflow_xml_path:  "C:\TempDir"
 
 - name: "DEPLOY_WORKFLOW"
-  commvault.ansible.workflow.deploy:
+  xbh03.commvault.workflow.deploy:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -2433,13 +2433,13 @@ workflow_xml_path  |   yes  |  | |  path of the workflow xml file / XMl contents
 
 
 
-## commvault.ansible.workflow.export <a name="commvault.ansible.workflow.export"></a>
+## xbh03.commvault.workflow.export <a name="xbh03.commvault.workflow.export"></a>
 Exports the workflow to the directory location specified by the user.
 
 
 #### Synopsis
  Exports the workflow XML to the directory location specified by the user.
- commvault.ansible.workflow.export module can be used in playbooks to export the workflow to the directory location specified by the user.
+ xbh03.commvault.workflow.export module can be used in playbooks to export the workflow to the directory location specified by the user.
 
 
 
@@ -2480,17 +2480,17 @@ export_location  |   yes  |  | |  Directory where the workflow would be exported
 # Exports the workflow to the directory location specified by the user.
 
 - name: "EXPORT_WORKFLOW"
-  commvault.ansible.workflow.export:
+  xbh03.commvault.workflow.export:
     workflow_name: "Demo_CheckReadiness"
     export_location: "C:\TempDir"
 
 - name: "EXPORT_WORKFLOW"
-  commvault.ansible.workflow.export:
+  xbh03.commvault.workflow.export:
     workflow_name: "client check readiness"
     export_location: "C:\TempDir"
 
 - name: "EXPORT_WORKFLOW"
-  commvault.ansible.workflow.export:
+  xbh03.commvault.workflow.export:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -2522,13 +2522,13 @@ export_location  |   yes  |  | |  Directory where the workflow would be exported
 
 
 
-## commvault.ansible.workflow.import <a name="commvault.ansible.workflow.import"></a>
+## xbh03.commvault.workflow.import <a name="xbh03.commvault.workflow.import"></a>
 Imports a workflow to the Commcell.
 
 
 #### Synopsis
  Imports a workflow to the Commcell.
- commvault.ansible.workflow.import module can be used in playbooks to import a workflow on the Commcell.
+ xbh03.commvault.workflow.import module can be used in playbooks to import a workflow on the Commcell.
 
 
 
@@ -2569,15 +2569,15 @@ workflow_xml_path  |   yes  |  | |  path of the workflow xml file / XMl contents
 # Imports a workflow to the Commcell.
 
 - name: "IMPORT_WORKFLOW"
-  commvault.ansible.workflow.import:
+  xbh03.commvault.workflow.import:
     workflow_xml_path:  "C:\TempDir"
 
 - name: "IMPORT_WORKFLOW"
-  commvault.ansible.workflow.import:
+  xbh03.commvault.workflow.import:
     workflow_xml_path:  "C:\TempDir"
 
 - name: "IMPORT_WORKFLOW"
-  commvault.ansible.workflow.import:
+  xbh03.commvault.workflow.import:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -2608,7 +2608,7 @@ workflow_xml_path  |   yes  |  | |  path of the workflow xml file / XMl contents
 
 
 
-## commvault.ansible.storage.disk.detail <a name="commvault.ansible.storage.disk.detail"></a>
+## xbh03.commvault.storage.disk.detail <a name="xbh03.commvault.storage.disk.detail"></a>
 Gets details of a disk storage
 
 
@@ -2659,11 +2659,11 @@ detail |  Success  |   dict  |   Details of the disk storage  |   |
 
 ```
 - name: "Getting details of disk storage"
-  commvault.ansible.storage.disk.detail:
+  xbh03.commvault.storage.disk.detail:
     name: "storage2"
 
 - name: "Getting details of disk storage"
-  commvault.ansible.storage.disk.detail:
+  xbh03.commvault.storage.disk.detail:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -2695,7 +2695,7 @@ detail |  Success  |   dict  |   Details of the disk storage  |   |
 
 
 
-## commvault.ansible.storage.disk.add <a name="commvault.ansible.storage.disk.add"></a>
+## xbh03.commvault.storage.disk.add <a name="xbh03.commvault.storage.disk.add"></a>
 Creates a disk storage
 
 
@@ -2749,14 +2749,14 @@ name |  Success  |   str  |   The name of the disk storage created  |   storage2
 
 ```
 - name: Creating disk storage
-  commvault.ansible.storage.disk.add:
+  xbh03.commvault.storage.disk.add:
     name: "storage2"
     media_agent: "cv_mediaagent_1"
     mount_path: "D:\storage2"
     deduplication_db_path: "D:\ddb_path2"
 
 - name: Creating disk storage
-  commvault.ansible.storage.disk.add:
+  xbh03.commvault.storage.disk.add:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -2771,7 +2771,7 @@ name |  Success  |   str  |   The name of the disk storage created  |   storage2
 
 ## Client properties
 
-`commvault.ansible.clients.manage_client` manages the description of an **existing**
+`xbh03.commvault.clients.manage_client` manages the description of an **existing**
 client entity, including filesystem pseudoclients. It does not create/delete clients or change
 agent/subclient settings. Specify exactly one of `client` (SDK-resolvable name) or
 `client_id` (positive client entity ID), and the desired `description`.
@@ -2780,7 +2780,7 @@ Repeated runs are idempotent; check mode reports pending changes without writing
 and diff mode shows the old and requested descriptions. Updates are read back and
 verified before reporting success.
 
-`commvault.ansible.clients.client_info` is read-only:
+`xbh03.commvault.clients.client_info` is read-only:
 
 - With `client` or `client_id`, returns `client`, integer `client_id`, `description`
   and `properties` (the SDK property dictionary, without the REST response envelope).
@@ -2801,22 +2801,22 @@ CVPySDK >= 11.38 already implements the required API operations:
 
 ```yaml
 - name: Describe an existing filesystem pseudoclient
-  commvault.ansible.clients.manage_client:
+  xbh03.commvault.clients.manage_client:
     client: filesystem-pseudoclient01
     description: Production filesystem
 
 - name: Resolve its ID and retrieve its current properties
-  commvault.ansible.clients.client_info:
+  xbh03.commvault.clients.client_info:
     client: filesystem-pseudoclient01
   register: pseudoclient
 
 - name: Clear the description by ID
-  commvault.ansible.clients.manage_client:
+  xbh03.commvault.clients.manage_client:
     client_id: "{{ pseudoclient.client_id }}"
     description: ''
 
 - name: List clients visible to the SDK
-  commvault.ansible.clients.client_info:
+  xbh03.commvault.clients.client_info:
   register: client_inventory
 ```
 
@@ -2833,16 +2833,16 @@ compared case-insensitively, following CVPySDK.
 
 ```yaml
 - name: Create an entity tag
-  commvault.ansible.tags.add:
+  xbh03.commvault.tags.add:
     name: Production
 
 - name: Rename the tag globally, preserving its ID and associations
-  commvault.ansible.tags.update:
+  xbh03.commvault.tags.update:
     name: Production
     new_name: Critical
 
 - name: Associate existing tags with a filesystem client
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client: fileserver01
     tags: [Critical]
     tag_values:
@@ -2850,31 +2850,31 @@ compared case-insensitively, following CVPySDK.
     state: present
 
 - name: Identify the same filesystem client by ID instead of name (123 is an example ID)
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client_id: 123
     tags: [Critical]
     tag_values:
       Environment: Production
 
 - name: Associate a tag with a VM using its SDK-resolvable client name
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client: vm-client01
     tags: [Critical]
 
 - name: Set or update a value on a database client
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client: database-server01
     tag_values:
       Environment: Development
 
 - name: Remove only the association from the filesystem client
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client: fileserver01
     tags: [Critical]
     state: absent
 
 - name: Delete the tag globally, including its associations
-  commvault.ansible.tags.delete:
+  xbh03.commvault.tags.delete:
     name: Critical
 ```
 

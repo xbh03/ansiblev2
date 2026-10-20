@@ -4,7 +4,7 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.tags.manage_clients
+module: xbh03.commvault.tags.manage_clients
 short_description: Associates or removes entity tags on a client
 description:
   - Manages entity tags on CLIENT_ENTITY (3), including filesystem, VM and database clients with a client ID.
@@ -66,32 +66,32 @@ author:
 
 EXAMPLES = r'''
 - name: Associate tags with a filesystem client
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client: fileserver01
     tags: [Critical, Linux]
     tag_values:
       Environment: Production
 
 - name: Identify the same filesystem client by ID instead of name (123 is an example ID)
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client_id: 123
     tags: [Critical]
     tag_values:
       Environment: Production
 
 - name: Associate a tag with a VM using its SDK-resolvable client name
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client: vm-client01
     tags: [Critical]
 
 - name: Update the Environment value on a database client
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client: database-server01
     tag_values:
       Environment: Production
 
 - name: Remove an association without deleting the tag
-  commvault.ansible.tags.manage_clients:
+  xbh03.commvault.tags.manage_clients:
     client: fileserver01
     tags: [Critical]
     state: absent
@@ -117,8 +117,8 @@ state:
   type: str
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
-from ansible_collections.commvault.ansible.plugins.module_utils.tags import client_tags, request, validate_names
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.tags import client_tags, request, validate_names
 
 
 def main():

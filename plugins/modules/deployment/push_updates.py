@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.deployment.push_updates
+module: xbh03.commvault.deployment.push_updates
 short_description: To Push Updates to the Clients from Commserver
 description: 
     - This module pushes latest Updates to client from CommCell 
-    - commvault.ansible.deployment.push_updates module can be used in playbooks to perform Push Updates to Clients
+    - xbh03.commvault.deployment.push_updates module can be used in playbooks to perform Push Updates to Clients
 
 options:
     webserver_hostname:
@@ -104,13 +104,13 @@ EXAMPLES = '''
 # Run a File System Backup for default subclient of default backupset.
 
 - name: "PUSH_UPDATES_TO_ALL_THE_CLIENTS"
-  commvault.ansible.deployment.push_updates:
+  xbh03.commvault.deployment.push_updates:
     update_all_client_computers: True
     reboot_client: False
     wait_for_job_completion: False
 
 - name: "PUSH_UPDATES_TO_ALL_CLIENT_GROUPS"
-  commvault.ansible.deployment.push_updates:
+  xbh03.commvault.deployment.push_updates:
     client_names: 
       - clientname1
       - clientname2
@@ -118,7 +118,7 @@ EXAMPLES = '''
     reboot_client: False
 
 - name: "PUSH_UPDATES"
-  commvault.ansible.deployment.push_updates:
+  xbh03.commvault.deployment.push_updates:
     client_names: 
       - clientname1
       - clientname2
@@ -131,7 +131,7 @@ EXAMPLES = '''
     wait_for_job_completion: True
 
 - name: "PUSH_UPDATES"
-  commvault.ansible.deployment.push_updates:
+  xbh03.commvault.deployment.push_updates:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -156,7 +156,7 @@ job_id:
 
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

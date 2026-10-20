@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.workflow.export
+module: xbh03.commvault.workflow.export
 short_description: Exports the workflow to the directory location specified by the user.
 description: 
     - Exports the workflow XML to the directory location specified by the user.
-    - commvault.ansible.workflow.export module can be used in playbooks to export the workflow to the directory location specified by the user.
+    - xbh03.commvault.workflow.export module can be used in playbooks to export the workflow to the directory location specified by the user.
 
 options:
     webserver_hostname:
@@ -62,17 +62,17 @@ EXAMPLES = '''
 # Exports the workflow to the directory location specified by the user.
 
 - name: "EXPORT_WORKFLOW"
-  commvault.ansible.workflow.export:
+  xbh03.commvault.workflow.export:
     workflow_name: "Demo_CheckReadiness"
     export_location: "C:\TempDir"
 
 - name: "EXPORT_WORKFLOW"
-  commvault.ansible.workflow.export:
+  xbh03.commvault.workflow.export:
     workflow_name: "client check readiness"
     export_location: "C:\TempDir"
 
 - name: "EXPORT_WORKFLOW"
-  commvault.ansible.workflow.export:
+  xbh03.commvault.workflow.export:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -83,7 +83,7 @@ EXAMPLES = '''
 
 RETURN = r'''#'''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

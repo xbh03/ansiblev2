@@ -1,4 +1,4 @@
-# collections/ansible_collections/commvault/ansible/meta/runtime.yml
+# collections/ansible_collections/xbh03/commvault/meta/runtime.yml
 galaxy_info:
   author: Commvault Systems Inc.
   description: Commvault's Ansible collection to help perform common administrative tasks.

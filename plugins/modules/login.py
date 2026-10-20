@@ -18,10 +18,10 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.login
+module: xbh03.commvault.login
 short_description: Login in to the Commcell with provided credentials or auth token.
 description:
-    - commvault.ansible.login can be used to login to Commcell using credentials or auth. token.
+    - xbh03.commvault.login can be used to login to Commcell using credentials or auth. token.
 options:
  webserver_hostname:
   description:
@@ -59,7 +59,7 @@ author:
 
 EXAMPLES = r'''
 - name: Log in to the Commcell
-  commvault.ansible.login:
+  xbh03.commvault.login:
     webserver_hostname: 'web_server_hostname' 
     commcell_username: 'user'
     commcell_password: 'password'
@@ -73,8 +73,8 @@ authtoken:
     sample: QSDK value_of_token
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
-from ansible_collections.commvault.ansible.plugins.module_utils.login.pre_login import PreLogin
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.login.pre_login import PreLogin
 
 
 def main():

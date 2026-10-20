@@ -18,10 +18,10 @@
 
 DOCUMENTATION = '''
 ---
-module: commvault.ansible.database.restore
+module: xbh03.commvault.database.restore
 short_description: to perform restore of a database subclient.
 description:
-    - commvault.ansible.database.restore can be used to perform a database restore operation.
+    - xbh03.commvault.database.restore can be used to perform a database restore operation.
 
 options:
     webserver_hostname:
@@ -111,12 +111,12 @@ options:
 
 EXAMPLES = r'''
 - name: Run a Database Restore for default subclient of default backupset with agent_type of 'mysql', session file will be used.
-  commvault.ansible.database.restore:
+  xbh03.commvault.database.restore:
    client: "client_name"
    instance: "instance_name"
 
 - name: Run a Database Restore for subclient for subclient 'user_subclient' of backupset 'user_backupset' with agent_type of 'mysql', session file will be used.
-  commvault.ansible.database.restore:
+  xbh03.commvault.database.restore:
    client: "client_name"
    instance: "instance_name"
    backupset: "user_backupset"
@@ -125,14 +125,14 @@ EXAMPLES = r'''
    content: "/database_name"
 
 - name: Run a Database Restore for default subclient of default backupset with agent_type of 'mysql' and to date '2025/05/16 08:00:00', session file will be used.
-  commvault.ansible.database.restore
+  xbh03.commvault.database.restore
     client: "client_name"
     instance: "instance_name"
     agent_type: "mysql
     to_date: "2025/05/16 08:00:00"
 
 - name: Run a Database Restore out of place for default subclient of default backupset with agent_type of 'mysql' and to date '2025/05/16 08:00:00', session file will be used.
-  commvault.ansible.database.restore
+  xbh03.commvault.database.restore
     client: "client_name"
     instance: "instance_name"
     agent_type: "mysql
@@ -141,7 +141,7 @@ EXAMPLES = r'''
     destination_instance: "destination_instance_name"
 
 - name: Run a Database Restore out of place for default subclient of default backupset with agent_type of 'mysql', session file will be used.
-  commvault.ansible.database.restore
+  xbh03.commvault.database.restore
     client: "client_name"
     instance: "instance_name"
     agent_type: "mysql
@@ -161,7 +161,7 @@ job_id:
 '''
 
 from datetime import datetime
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 def main ():
     """Main method for this module."""

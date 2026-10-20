@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.deployment.install_software
+module: xbh03.commvault.deployment.install_software
 short_description: To perform Push Installation from the Commserve
 description: 
     - This module performs a Fresh Push Installation to Client Machine from the CommCell
-    - commvault.ansible.deployment.install_software module can be used in playbooks to perform Push Installs to Clients
+    - xbh03.commvault.deployment.install_software module can be used in playbooks to perform Push Installs to Clients
 
 options:
     webserver_hostname:
@@ -143,7 +143,7 @@ EXAMPLES = '''
 # Run a Push Installation to the client from Commserver.
 
 - name: "INSTALL_SOFTWARE/PUSH_INSTALL"
-  commvault.ansible.deployment.install_software:
+  xbh03.commvault.deployment.install_software:
     os_type: "windows"
     client_computers:
       - hostname1.example.com
@@ -162,7 +162,7 @@ EXAMPLES = '''
     wait_for_job_completion: False
 
 - name: "INSTALL_SOFTWARE/PUSH_INSTALL_WINDOWS"
-  commvault.ansible.deployment.install_software:
+  xbh03.commvault.deployment.install_software:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -184,7 +184,7 @@ EXAMPLES = '''
     wait_for_job_completion: True
 
 - name: "INSTALL_SOFTWARE/PUSH_INSTALL_UNIX"
-  commvault.ansible.deployment.install_software:
+  xbh03.commvault.deployment.install_software:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -220,7 +220,7 @@ job_id:
 
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 try:
     from base64 import b64encode
     from cvpysdk.deployment.deploymentconstants import UnixDownloadFeatures, WindowsDownloadFeatures

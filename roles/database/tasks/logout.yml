@@ -1,5 +1,5 @@
 - name: Log out of the Commcell
-  commvault.ansible.logout:
+  xbh03.commvault.logout:
   tags:
     - backup
     - restore

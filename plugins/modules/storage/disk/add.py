@@ -19,7 +19,7 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.storage.disk.add
+module: xbh03.commvault.storage.disk.add
 short_description: Creates a disk storage
 description: 
  - This module creates a disk storage in the CommCell
@@ -65,14 +65,14 @@ author:
 
 EXAMPLES = '''
 - name: Creating disk storage
-  commvault.ansible.storage.disk.add:
+  xbh03.commvault.storage.disk.add:
     name: "storage2"
     media_agent: "cv_mediaagent_1"
     mount_path: "D:\storage2"
     deduplication_db_path: "D:\ddb_path2"
 
 - name: Creating disk storage
-  commvault.ansible.storage.disk.add:
+  xbh03.commvault.storage.disk.add:
     webserver_hostname: "web_server_hostname" 
     commcell_username: "user"  
     commcell_password: "password"
@@ -95,7 +95,7 @@ id:
     sample: '12'
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 
 def main():

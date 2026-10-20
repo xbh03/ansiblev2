@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.job.resume
+module: xbh03.commvault.job.resume
 short_description: Resumes the Job
 description: 
     - This module resumes the job
-    - commvault.ansible.job.resume module can be used in playbooks to resume the job
+    - xbh03.commvault.job.resume module can be used in playbooks to resume the job
 
 options:
     webserver_hostname:
@@ -62,21 +62,21 @@ EXAMPLES = '''
 # Resumes a particular Job
 
 - name: "Resume Job"
-  commvault.ansible.job.resume:
+  xbh03.commvault.job.resume:
     job_id: 3
 
 - name: "Resume Job"
-  commvault.ansible.job.resume:
+  xbh03.commvault.job.resume:
     job_id: 7
     wait_for_job_to_resume: False
 
 - name: "Resume Job and Wait for Resume Task to be completed"
-  commvault.ansible.job.resume:
+  xbh03.commvault.job.resume:
     job_id: 18
     wait_for_job_to_resume: True
 
 - name: "Resume Job"
-  commvault.ansible.job.resume:
+  xbh03.commvault.job.resume:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -86,7 +86,7 @@ EXAMPLES = '''
 
 RETURN = r'''#'''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 try:
     from cvpysdk.job import Job
     from cvpysdk.exception import SDKException

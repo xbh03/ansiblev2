@@ -18,11 +18,11 @@
 
 
 DOCUMENTATION = '''
-module: commvault.ansible.job.status
+module: xbh03.commvault.job.status
 short_description: Checks the status of the Job
 description: 
     - This module Checks the Job Status
-    - commvault.ansible.job.status module can be used in playbooks to check the job status
+    - xbh03.commvault.job.status module can be used in playbooks to check the job status
 
 options:
     webserver_hostname:
@@ -62,21 +62,21 @@ EXAMPLES = '''
 # Checks the status of the particular Job
 
 - name: "Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     job_id: 3
 
 - name: "Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     job_id: 7
     wait_for_job_completion: False
 
 - name: "Wait for Job Completion and provide the Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     job_id: 18
     wait_for_job_completion: True
 
 - name: "Job Status"
-  commvault.ansible.job.status:
+  xbh03.commvault.job.status:
     webserver_hostname: "demo-CS-Name"
     commcell_username: "user"
     commcell_password: "CS-Password"
@@ -92,7 +92,7 @@ job_id:
 
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 try:
     from cvpysdk.job import Job
     from cvpysdk.exception import SDKException

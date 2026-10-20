@@ -18,10 +18,10 @@
 
 DOCUMENTATION = r'''
 ---
-module: commvault.ansible.database.backup
+module: xbh03.commvault.database.backup
 short_description: To perform a backup of a database subclient
 description:
-    - commvault.ansible.database.backup can be used to perform database backup operation.
+    - xbh03.commvault.database.backup can be used to perform database backup operation.
 
 options:
   webserver_hostname:
@@ -80,13 +80,13 @@ options:
 
 EXMPLES = '''
 - name: Run a Database Backup for a default subclient of a default backupset, session file will be used.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     client: "client_name"
     instance: "instance_name"
     agent_type: "mysql
 
 - name: Run a Database Backup for subclient 'user_subclient' of backupset 'user_backupset', session file will be used.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     client: "client_name"
     instance: "instance_name"
     backupset: "user_backupset"
@@ -94,7 +94,7 @@ EXMPLES = '''
     agent_type: "mysql
 
 - name: Run a Database Backup for default subclient of default backupset.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     webserver_hostname: "webserver_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -103,7 +103,7 @@ EXMPLES = '''
     agent_type: "mysql
 
 - name: Run a Database Backup for subclient 'user_subclient' of backupse ' user_backupset'.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     webserver_hostname: "webserver_hostname"
     commcell_username: "user"
     commcell_password: "password"
@@ -114,7 +114,7 @@ EXMPLES = '''
     agent_type: "mysql
 
 - name: run a Database Backup for subclient 'user_subclient' of backupset 'user_backupset' with agent_type of 'mysql'.
-  commvault.ansible.database.backup:
+  xbh03.commvault.database.backup:
     webserver_hostname: "webserver_hostname"
     commecell_username: "user"
     commcell_password: "password"
@@ -134,7 +134,7 @@ job_id:
     sample: '2025'
 '''
 
-from ansible_collections.commvault.ansible.plugins.module_utils.cv_ansible_module import CVAnsibleModule
+from ansible_collections.xbh03.commvault.plugins.module_utils.cv_ansible_module import CVAnsibleModule
 
 def main ():
     """Main method for this module."""
