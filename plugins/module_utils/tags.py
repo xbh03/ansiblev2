@@ -37,8 +37,10 @@ def request(commcell, method, path, payload=None):
 
 
 def client_tags(commcell, client_id):
-    """Read tags for a client entity, rejecting malformed success responses."""
+    """Read client tags, accepting the empty-error response for untagged clients."""
     data = request(commcell, 'GET', 'Tags/CLIENT_ENTITY/{0}'.format(client_id))
+    if 'tags' not in data and data.get('error') == {}:
+        return []
     entities = data.get('tags')
     if not isinstance(entities, list):
         raise ValueError("Tag API response is missing the tags list")
