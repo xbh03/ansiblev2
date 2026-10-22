@@ -2,7 +2,7 @@
  "collection_info": {
   "namespace": "xbh03",
   "name": "commvault",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "authors": [
    "Commvault Systems Inc.",
    "@xbh03 Francesco Zoino"
@@ -25,7 +25,7 @@
   "name": "FILES.json",
   "ftype": "file",
   "chksum_type": "sha256",
-  "chksum_sha256": "4a4f2ba8d3129f4f02717db972f368766a04d94fa0a381af260f4ee2887971b2",
+  "chksum_sha256": "94fe0c02097fe497821819f06d3c1dbd78ce1b8fa4dfbd99ba86f573cfda42df",
   "format": 1
  },
  "format": 1
