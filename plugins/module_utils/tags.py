@@ -6,7 +6,7 @@
 
 
 def request(commcell, method, path, payload=None):
-    """Send an authenticated SDK request and surface HTTP and API errors."""
+    """Surface HTTP/API errors, allowing messages with an explicit success code."""
     url = commcell._web_service.rstrip('/') + '/' + path.lstrip('/')
     flag, response = commcell._cvpysdk_object.make_request(method, url, payload)
     if not flag:
@@ -31,7 +31,7 @@ def request(commcell, method, path, payload=None):
             raise ValueError("Tag API returned an invalid error entry")
         code = error.get('errorCode', 0)
         message = error.get('errorMessage') or error.get('errLogMessage')
-        if code not in (0, '0', None) or message:
+        if code not in (0, '0', None) or (message and error.get('errorCode') not in (0, '0')):
             raise ValueError("Tag API error {0}: {1}".format(code, message or 'Unknown error'))
     return data
 
