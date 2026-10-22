@@ -126,7 +126,7 @@ def main():
         argument_spec=dict(
             client=dict(type=str),
             client_id=dict(type=int),
-            tags=dict(type=list, elements=str, default=[]),
+            tags=dict(type='list', elements='str', default=[]),
             tag_values=dict(type=dict, default={}),
             state=dict(type=str, choices=['present', 'absent'], default='present'),
         ),
